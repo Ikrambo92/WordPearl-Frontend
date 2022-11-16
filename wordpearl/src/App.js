@@ -8,10 +8,12 @@ function App() {
   return (
     <div className="App">
       <div className="heading">
-        <h1>WordPearl</h1>
+        <h1>Word<span>Pearl</span></h1>
       </div>
       <Navbar />
-      <Login />
+      <Routes>
+        <Route path='/login' element={<Login />} />
+      </Routes>
       <Footer />
     </div>
   );
