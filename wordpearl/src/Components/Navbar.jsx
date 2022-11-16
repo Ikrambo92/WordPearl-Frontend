@@ -10,7 +10,9 @@ const Navbar = () => {
                     <li>User Profile</li>
                     <li>Login</li>
                     <li>Sign Up</li>
-                    <li>Generate Pearls</li>
+                   <Link to={'/PearlGenerator'}>
+                   <li>Generate Pearls</li>
+                   </Link>
                     <li>Successful Pearl Animation Page</li>
                     <li>Chest of Pearls</li>
                 </ul>
