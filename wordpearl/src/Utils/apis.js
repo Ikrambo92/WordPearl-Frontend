@@ -4,7 +4,7 @@ const myAPI = axios.create({
     baseURL: "https://wordpearl-be.herokuapp.com",
 });
 
-//pearls
+//getPearls
 export const getPearls = () => {
     return myAPI.get("/pearls")
         .then((res) => {
@@ -15,7 +15,7 @@ export const getPearls = () => {
         });
 }
 
-//pearlById
+//getPearlById
 export const getPearlById = (pearl_id) => {
     return myAPI.get(`/pearls/${pearl_id}`)
         .then((res) => {
@@ -26,7 +26,18 @@ export const getPearlById = (pearl_id) => {
         });
 };
 
-//oysters
+//patchPearlById
+export const patchPearlById = (pearl_id) => {
+    return myAPI.patch(`/comments/${pearl_id}`)
+        .then((res) => {
+            return res.data.comment;
+        })
+        .catch((err) => {
+            throw err;
+        });
+};
+
+//getOysters
 export const getOysters = () => {
     return myAPI.get("/oysters")
         .then((res) => {
@@ -37,7 +48,7 @@ export const getOysters = () => {
         });
 }
 
-//oysterById
+//getOysterById
 export const getOysterById = (oyster_id) => {
     return myAPI.get(`/oysters/${oyster_id}`)
         .then((res) => {
@@ -48,7 +59,29 @@ export const getOysterById = (oyster_id) => {
         });
 };
 
-//comments
+//postOyster
+export const postOyster = (oyster) => {
+    return myAPI.post(`/oysters/`)
+        .then((res) => {
+            return res.data.oyster;
+        })
+        .catch((err) => {
+            throw err;
+        });
+};
+
+//deleteOysterById
+export const deleteOysterById = (oyster_id) => {
+    return myAPI.delete(`/oysters/${oyster_id}`)
+        .then((res) => {
+            return res.data.oyster;
+        })
+        .catch((err) => {
+            throw err;
+        });
+};
+
+//getComments
 export const getComments = () => {
     return myAPI.get("/comments")
         .then((res) => {
@@ -59,9 +92,31 @@ export const getComments = () => {
         });
 }
 
-//commentById
+//getCommentById
 export const getCommentById = (comment_id) => {
     return myAPI.get(`/comments/${comment_id}`)
+        .then((res) => {
+            return res.data.comment;
+        })
+        .catch((err) => {
+            throw err;
+        });
+};
+
+//postComment
+export const postComment = (comment) => {
+    return myAPI.get("/comments")
+        .then((res) => {
+            return res.data.comment
+        })
+        .catch((err) => {
+            throw err;
+        });
+}
+
+//patchCommentById
+export const patchCommentById = (comment_id) => {
+    return myAPI.patch(`/comments/${comment_id}`)
         .then((res) => {
             return res.data.comment;
         })
