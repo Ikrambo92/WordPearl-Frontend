@@ -6,8 +6,9 @@ const myAPI = axios.create({
 
 //getPearls
 export const getPearls = () => {
-    return myAPI.get("/pearls")
+    return myAPI.get("/pearls/")
         .then((res) => {
+            console.log(res);
             return res.data.pearls
         })
         .catch((err) => {
@@ -39,7 +40,7 @@ export const patchPearlById = (pearl_id) => {
 
 //getOysters
 export const getOysters = () => {
-    return myAPI.get("/oysters")
+    return myAPI.get("/oysters/")
         .then((res) => {
             return res.data.oysters
         })
@@ -83,7 +84,7 @@ export const deleteOysterById = (oyster_id) => {
 
 //getComments
 export const getComments = () => {
-    return myAPI.get("/comments")
+    return myAPI.get("/comments/")
         .then((res) => {
             return res.data.comments
         })
@@ -105,7 +106,7 @@ export const getCommentById = (comment_id) => {
 
 //postComment
 export const postComment = (comment) => {
-    return myAPI.get("/comments")
+    return myAPI.get("/comments/")
         .then((res) => {
             return res.data.comment
         })
