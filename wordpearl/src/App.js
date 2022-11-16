@@ -9,13 +9,14 @@ function App() {
   return (
     <div className="App">
       <div className="heading">
-        <h1>WordPearl</h1>
+        <h1>Word<span>Pearl</span></h1>
       </div>
       <Navbar />
       <Routes>
      <Route path='/PearlGenerator' element={<PearlGenerator/>}/>
      <Route path='/Login' element={<Login/>}/> 
-     </Routes>
+      </Routes>
+
       <Footer />
     </div>
   );

@@ -1,0 +1,21 @@
+.nav-list {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  list-style: none;
+  background: linear-gradient(180deg, magenta, cyan);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: capitalize;
+  overflow: auto;
+  text-overflow: ellipsis;
+  animation: marquee 10s linear infinite;
+  font-size: 1.5rem;
+}
+
+.nav-list:hover {
+  cursor: pointer;
+}
+

@@ -1,5 +1,6 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import './Navbar.css'
 
 const Navbar = () => {
     return (
@@ -8,12 +9,12 @@ const Navbar = () => {
                 <ul className='nav-list'>
                     <li>Home</li>
                     <li>User Profile</li>
-                    <li>Login</li>
-                    <li>Sign Up</li>
                    <Link to={'/PearlGenerator'}>
                    <li>Generate Pearls</li>
                    </Link>
                     <li>Successful Pearl Animation Page</li>
+                    <li>Login/Sign Up</li>
+                    <li>Generate Pearls</li>
                     <li>Chest of Pearls</li>
                 </ul>
             </nav>
