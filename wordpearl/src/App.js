@@ -3,6 +3,7 @@ import './App.css'
 import Navbar from './Components/Navbar.jsx'
 import Login from './Components/Login'
 import Footer from './Components/Footer.jsx'
+import PearlGenerator from './Components/PearlGenerator'
 
 function App() {
   return (
@@ -12,8 +13,10 @@ function App() {
       </div>
       <Navbar />
       <Routes>
-        <Route path='/login' element={<Login />} />
+     <Route path='/PearlGenerator' element={<PearlGenerator/>}/>
+     <Route path='/Login' element={<Login/>}/> 
       </Routes>
+
       <Footer />
     </div>
   );

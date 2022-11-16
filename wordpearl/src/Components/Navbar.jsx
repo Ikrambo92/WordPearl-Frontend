@@ -8,6 +8,11 @@ const Navbar = () => {
             <nav>
                 <ul className='nav-list'>
                     <li>Home</li>
+                    <li>User Profile</li>
+                   <Link to={'/PearlGenerator'}>
+                   <li>Generate Pearls</li>
+                   </Link>
+                    <li>Successful Pearl Animation Page</li>
                     <li>Login/Sign Up</li>
                     <li>Generate Pearls</li>
                     <li>Chest of Pearls</li>
