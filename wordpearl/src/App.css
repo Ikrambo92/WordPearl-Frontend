@@ -1,38 +1,104 @@
-.App {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: rgb(32, 34, 34);
+  color: #fff;
+}
+
+.heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  font-size: 2rem;
+  letter-spacing: 1.5rem;
+}
+
+.nav-list {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  list-style: none;
+  background: linear-gradient(180deg, magenta, cyan);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-transform: capitalize;
+  overflow: auto;
+  text-overflow: ellipsis;
+  animation: marquee 10s linear infinite;
+  font-size: 1.5rem;
+}
+
+.nav-list:hover {
+  cursor: pointer;
+}
+
+.login-container {
+  height: 100vh;
+  width: 100%;
+  margin-left: 300px;
+  padding-top: 120px;
+}
+
+.creds {
+  padding-top: 150px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background: linear-gradient(
+    to right bottom,
+    rgba(0, 0, 255, 0.7),
+    rgba(159, 43, 104, 0.3)
+  );
+  width: 50vw;
+  height: 620px;
+  border-radius: 30px;
+}
+
+.creds h3 {
+  padding: 30px;
+  font-size: 1.6rem;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.creds p {
+  padding-top: 20px;
+}
+
+.creds input {
+  border-radius: 10px;
+}
+
+.creds input::placeholder {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.creds button, .creds .button {
+  padding-top: 40px;
+  border-radius: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.creds button {
+  background: none;
+  cursor: pointer;
+  margin: 0;
+  padding: 10px;
+  padding-left: 20px;
+  background: linear-gradient(180deg, magenta, cyan);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  cursor: pointer;
+  font-size: 30px;
+  font-weight: 900;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}

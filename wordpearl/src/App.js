@@ -1,10 +1,18 @@
-import './App.css';
-import {Routes, Route} from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
+import './App.css'
+import Navbar from './Components/Navbar.jsx'
+import Login from './Components/Login'
+import Footer from './Components/Footer.jsx'
 
 function App() {
   return (
     <div className="App">
-      <h1>Word Pearl</h1>
+      <div className="heading">
+        <h1>WordPearl</h1>
+      </div>
+      <Navbar />
+      <Login />
+      <Footer />
     </div>
   );
 }
