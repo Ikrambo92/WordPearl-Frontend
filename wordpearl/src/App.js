@@ -8,7 +8,7 @@ import Pearls from './Components/Pearls'
 import Comments from './Components/Comments'
 import Oysters from './Components/Oysters'
 import SuccessfulPearl from './Components/SuccessfulPearl'
-
+import SinglePearl from './Components/SinglePearl'
 
 
 function App() {
@@ -21,6 +21,8 @@ function App() {
       <Routes>
         <Route path='/Login' element={<Login />} />
         <Route path='/Pearls' element={<Pearls />} />
+        <Route path="/pearls/:id" element={<SinglePearl />}></Route>
+
         <Route path='/Comments' element={<Comments />} />
         <Route path='/Oysters' element={<Oysters />} />
         <Route path='/PearlGenerator' element={<PearlGenerator />} />
