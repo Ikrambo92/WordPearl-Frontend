@@ -16,8 +16,6 @@ const Pearls = () => {
         })
     }, [])
 
-    console.log(pearlsList)
-
     if (isLoading) return <p>Pearls are loading...</p> 
 
     return (

@@ -5,18 +5,12 @@ import { getPearlById, patchPearlById } from '../Utils/apis';
 
 const SinglePearl = () => {
 
+    const [pearl, setPearl] = useState([]);
+    const { title, votes, body, username, created_at } = pearl;
     const { id } = useParams();
     const [isLoading, setIsLoading] = useState(true);
-    const [pearl, setPearl] = useState([]);
-    const [voteIncrement, setVoteIncrement] = useState(0);
-    const { title, votes, body, username, created_at } = pearl;
-
-
-  const handleClick = (votes) => {
-      setVoteIncrement((voteIncrement) => voteIncrement + 1);
-      console.log(voteIncrement, 'second consolel log')
-    patchPearlById(id, votes);
-  }
+    const [voteChange, setVoteChange] = useState(0);
+    let putVotes = 0
 
     useEffect(() => {
         getPearlById(id).then((pearl) => {
@@ -26,7 +20,19 @@ const SinglePearl = () => {
       .catch((err) => {
         setIsLoading(false);
       });
-    }, [id]);
+    }, [id, votes]);
+
+    const handleClickUp = () => {
+      putVotes = votes + 1
+      setVoteChange((voteChange) => voteChange + 1);
+    patchPearlById(id, putVotes);
+  }
+
+    const handleClickDown = () => {
+      putVotes = votes - 1
+      setVoteChange((voteChange) => voteChange - 1);
+      patchPearlById(id, putVotes)
+    }
 
     if (isLoading) return (<h2>Loading pearl...</h2>);
 
@@ -38,8 +44,9 @@ const SinglePearl = () => {
                   <h3>Author: {username}</h3>
                   <h4>Date: {created_at}</h4>
           <div>
-            <button onClick={() => handleClick(1)}>👍</button>
-            <h5>Votes: {votes + voteIncrement} </h5>
+            <button onClick={() => handleClickUp()}>👍</button>
+            <button onClick={() => handleClickDown()}>👎</button>
+            <h5>Votes: {votes + voteChange} </h5>
         </div>
         {/* <CommentList /> */}
       </section>

@@ -27,9 +27,8 @@ export const getPearlById = (pearl_id) => {
 };
 
 //patchPearlById
-export const patchPearlById = (pearl_id, votes) => {
-    console.log(pearl_id, votes, 'first console log' )
-    return myAPI.put(`/pearls/${pearl_id}`, { 'votes': (votes + 1) })
+export const patchPearlById = (pearl_id, putVotes) => {
+    return myAPI.put(`/pearls/${pearl_id}`, { votes: putVotes })
         .then((res) => {
             return res.data.pearl;
         })
