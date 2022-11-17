@@ -1,7 +1,8 @@
 import React from 'react'
 import './PearlGenerator.css'
 import { useState } from 'react';
-import pearlCheck from './pearlCheckFuc'
+import pearlCheck from './PearlCheck'
+
 const PearlGenerator = ()=> {
     const [pearl, setPearl] = useState('');
     const [oddLetters, setOddLetters] = useState('')
@@ -22,4 +23,5 @@ return <div className='pearlGenerator'>
     </form>
 </div>
 }
+
 export default PearlGenerator;
