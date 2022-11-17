@@ -10,7 +10,9 @@ const Navbar = () => {
                     <Link to={'/'}>
                         <li>Home</li>
                     </Link>
-                    <li>User Profile</li>
+                    <Link to={'/Oyster'}>
+                    <li>Oyster Profile</li>
+                    </Link>
                     <Link to={'/PearlGenerator'}>
                         <li>Generate Pearls</li>
                     </Link>
