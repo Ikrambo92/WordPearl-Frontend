@@ -8,7 +8,6 @@ const myAPI = axios.create({
 export const getPearls = () => {
     return myAPI.get("/pearls/")
         .then((res) => {
-            console.log(res);
             return res.data.pearls
         })
         .catch((err) => {
@@ -28,10 +27,11 @@ export const getPearlById = (pearl_id) => {
 };
 
 //patchPearlById
-export const patchPearlById = (pearl_id) => {
-    return myAPI.patch(`/comments/${pearl_id}`)
+export const patchPearlById = (pearl_id, votes) => {
+    console.log(pearl_id, votes, 'first console log' )
+    return myAPI.put(`/pearls/${pearl_id}`, { 'votes': (votes + 1) })
         .then((res) => {
-            return res.data.comment;
+            return res.data.pearl;
         })
         .catch((err) => {
             throw err;
