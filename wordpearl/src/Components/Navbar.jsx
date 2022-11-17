@@ -7,13 +7,17 @@ const Navbar = () => {
         <div className="nav-bar">
             <nav>
                 <ul className='nav-list'>
-                    <li>Home</li>
+                    <Link to={'/'}>
+                        <li>Home</li>
+                    </Link>
                     <li>User Profile</li>
-                   <Link to={'/PearlGenerator'}>
-                   <li>Generate Pearls</li>
-                   </Link>
+                    <Link to={'/PearlGenerator'}>
+                        <li>Generate Pearls</li>
+                    </Link>
                     <li>Successful Pearl Animation Page</li>
-                    <li>Login/Sign Up</li>
+                    <Link to={'/Login'}>
+                        <li>Login/Sign Up</li>
+                    </Link>
                     <li>Generate Pearls</li>
                     <li>Chest of Pearls</li>
                 </ul>

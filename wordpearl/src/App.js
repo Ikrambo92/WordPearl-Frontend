@@ -8,6 +8,8 @@ import Pearls from './Components/Pearls'
 import Comments from './Components/Comments'
 import Oysters from './Components/Oysters'
 import SuccessfulPearl from './Components/SuccessfulPearl'
+import Signup from './Components/Signup'
+import Home from './Components/Home'
 
 
 function App() {
@@ -24,6 +26,8 @@ function App() {
         <Route path='/Oysters' element={<Oysters />} />
         <Route path='/PearlGenerator' element={<PearlGenerator />} />
         <Route path='/SuccessfulPearl' element={<Pearls />} />
+        <Route path='/Signup' element={<Signup />} />
+        <Route path='/' element={<Home />} />
       </Routes>
       <Footer />
     </div>
