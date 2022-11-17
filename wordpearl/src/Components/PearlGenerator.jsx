@@ -1,26 +1,25 @@
 import React from 'react'
 import './PearlGenerator.css'
 import { useState } from 'react';
-
-
-
+import pearlCheck from './pearlCheckFuc'
 const PearlGenerator = ()=> {
-    
     const [pearl, setPearl] = useState('');
-
-    // const handleChange = event => {
-    //     setPearl(event.target.value);
-
+    const [oddLetters, setOddLetters] = useState('')
+    const [isSuccessful, setisSuccessful] = useState(false)
+    const handleSubmit = event => {
+        event.preventDefault()
+        setPearl(event.target.value);
+        setOddLetters(pearlCheck(pearl))
+        setPearl('')
+    }
 return <div className='pearlGenerator'>
-    <p className='pearlGenerator'>
-    <h2 className='pearlGenerator'>Create a Pearl !</h2>
-    <form action="">
-        <textarea name="" id="pearl" cols="50" rows="12" value={pearl}></textarea>
+    <label className='pearlGenerator'>Create a Pearl !</label>
+    <form onSubmit={handleSubmit}>
+        <textarea name="pearl" id="pearl" cols="50" rows="12"
+        value={pearl} onChange={(event)=> setPearl(event.target.value)}></textarea>
+        <p> Odd Letters : {oddLetters}</p>
+    <button disabled={!isSuccessful} type='submit'> Check Pearl </button>
     </form>
-    </p>
 </div>
-
-
 }
-
 export default PearlGenerator;
