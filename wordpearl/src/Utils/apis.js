@@ -116,7 +116,7 @@ export const getCommentById = (comment_id) => {
 
 //getCommentByPearlId
 export const getCommentByPearlId = (id) => {
-    return myAPI.get(`/searchcomments/?format=json&search=${id}&ordering=created_at`)
+    return myAPI.get(`/searchcomments/?format=json&search=${id}&ordering=-created_at`)
         .then((res) => {
             return res.data;
         }).catch((err) => {
@@ -127,7 +127,7 @@ export const getCommentByPearlId = (id) => {
 //postComment
 export const postComment = (comment) => {
     console.log(comment)
-    return myAPI.get("/comments/", comment)
+    return myAPI.post("/comments/", comment)
         .then((res) => {
             return res.data.comment
         })

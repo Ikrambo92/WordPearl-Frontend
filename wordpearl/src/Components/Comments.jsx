@@ -20,7 +20,13 @@ const CommentsByPearl = () => {
     }, [id])
 
     const handleChange = (event) => {
-      setNewComment({username: "Adawg", body: event.target.value, votes: 0, pearl_id: id, created_at: new Date()})
+      setNewComment({
+        "body": event.target.value,
+        "username": 1,
+        "pearl_id": 1,
+        "created_at": "2022-11-18",
+        "votes": 10
+      })
     }
 
     const handleClick = () => {
