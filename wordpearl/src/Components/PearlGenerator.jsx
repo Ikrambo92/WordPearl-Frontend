@@ -3,6 +3,8 @@ import './PearlGenerator.css'
 import { useState } from 'react';
 import pearlCheck from './PearlCheck'
 import { SuccessfulPearl } from './SuccessfulPearl';
+import myGif from './NewPiskel.gif'
+import myGif2 from './Pearly.gif'
 
 const PearlGenerator = ()=> {
     const [message, setMessage] = useState('');
@@ -27,6 +29,8 @@ const PearlGenerator = ()=> {
 
         return <div className='pearlGenerator'>
     <h2 className='pearlGenerator'>Create a Pearl !</h2>
+    <img src={myGif} alt={"my-gif"} />
+    <img src={myGif2} alt={"my-gif2"} />
     <form >
         <textarea type="text" name="message" id="message" cols="50" rows="12"
         value={message} onChange={handleChange}></textarea>
