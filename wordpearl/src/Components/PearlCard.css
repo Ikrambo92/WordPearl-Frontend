@@ -17,6 +17,7 @@
     height: 190px;
     background-color: #333;
     transition: .5s;
+    border-radius: 20px;
 }
 
 .card:hover {
@@ -72,16 +73,17 @@
 
 .card .content .details {
     position: absolute;
-    padding: 40px;
     text-align: center;
     width: 100%;
     transition: .5s;
-    transform: translateY(100px);
+    transform: translateY(10px);
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     overflow: hidden;
+    max-height: 400px;
+    margin-bottom: 30px;
 }
 
 .card:hover .content .details {
@@ -98,6 +100,18 @@
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    text-overflow: hidden;
+    white-space: nowrap;
+}
+
+.card:hover .content .details h5 {
+    display: block;
+    max-height: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 20px;
+    color: #fff;
+    padding: 10px 20px;
 }
 
 .card .content .details h5 {
@@ -106,6 +120,7 @@
     padding: 20px 0px;
     word-spacing: 5px;
     justify-content: center;
+    display: none;
 }
 
 .card .content .details p:nth-child(1) {
@@ -115,7 +130,22 @@
 }
 
 .card .content .details p:nth-child(2) {
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: 600;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
+}
+
+.card .content .details p:nth-child(3) {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+}
+
+.card .content .details span {
+    background: linear-gradient(180deg, magenta, cyan);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.6rem;
 }
