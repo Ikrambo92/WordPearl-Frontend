@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getPearlById, patchPearlById } from '../Utils/apis';
-//import CommentList from "./CommentList";
+import CommentsById from './Comments';
 
 const SinglePearl = () => {
 
@@ -48,7 +48,7 @@ const SinglePearl = () => {
             <button onClick={() => handleClickDown()}>👎</button>
             <h5>Votes: {votes + voteChange} </h5>
         </div>
-        {/* <CommentList /> */}
+        <CommentsById />
       </section>
       </main>
     );

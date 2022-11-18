@@ -103,6 +103,16 @@ export const getCommentById = (comment_id) => {
         });
 };
 
+//getCommentByPearlId
+export const getCommentByPearlId = (id) => {
+    return myAPI.get(`/searchcomments/?format=json&search=${id}&ordering=created_at`)
+        .then((res) => {
+            return res.data;
+        }).catch((err) => {
+            throw err;
+        })
+}
+
 //postComment
 export const postComment = (comment) => {
     return myAPI.get("/comments/")
@@ -115,10 +125,11 @@ export const postComment = (comment) => {
 }
 
 //patchCommentById
-export const patchCommentById = (comment_id) => {
-    return myAPI.patch(`/comments/${comment_id}`)
+export const patchCommentById = (comment_id, putVotes) => {
+    console.log(comment_id, putVotes)
+    return myAPI.put(`/comments/${comment_id}`, { votes: putVotes })
         .then((res) => {
-            return res.data.comment;
+            return res.data;
         })
         .catch((err) => {
             throw err;
