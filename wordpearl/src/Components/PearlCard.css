@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+}
+
+.card {
+    position: relative;
+    width: 350px;
+    height: 190px;
+    background-color: #333;
+    transition: .5s;
+}
+
+.card:hover {
+    height: 450px;
+}
+
+.card .lines {
+    position: absolute;
+    inset: 0;
+    background: #000;
+    overflow: hidden;
+}
+
+.card .lines::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 120px;
+    background: linear-gradient(transparent, #45f3ff, #45f3ff, #45f3ff, transparent);
+    animation: ikrambo 4s cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite;
+}
+
+@keyframes ikrambo {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+.card .lines::after {
+    content: '';
+    position: absolute;
+    inset: 6px;
+    background: #333;
+}
+
+.card .content {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.card .content .details {
+    position: absolute;
+    padding: 40px;
+    text-align: center;
+    width: 100%;
+    transition: .5s;
+    transform: translateY(100px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.card:hover .content .details {
+    transform: translateY(0px);
+}
+
+.card .content .details h2 {
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    line-height: 2rem;
+    background: linear-gradient(180deg, magenta, cyan);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.card .content .details h5 {
+    text-transform: uppercase;
+    font-style: italic;
+    padding: 20px 0px;
+    word-spacing: 5px;
+    justify-content: center;
+}
+
+.card .content .details p:nth-child(1) {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.card .content .details p:nth-child(2) {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
