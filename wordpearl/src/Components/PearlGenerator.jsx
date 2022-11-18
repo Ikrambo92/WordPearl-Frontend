@@ -36,7 +36,7 @@ const PearlGenerator = ()=> {
 
     } else {
       return   <div>
-            <SuccessfulPearl/>
+            <SuccessfulPearl message={message}/>
         </div>
     }
  
