@@ -126,7 +126,6 @@ export const postComment = (comment) => {
 
 //patchCommentById
 export const patchCommentById = (comment_id, putVotes) => {
-    console.log(comment_id, putVotes)
     return myAPI.put(`/comments/${comment_id}`, { votes: putVotes })
         .then((res) => {
             return res.data;
