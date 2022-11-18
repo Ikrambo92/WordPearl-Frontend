@@ -18,8 +18,8 @@ export const SuccessfulPearl = (message) => {
   }
 
 
-  return <div>
-    <h1 >Congratulations !!</h1>
+  return <div className="congratsPage">
+    <h1 id="banner">Congratulations !!</h1>
       <p>Successful Pearl !</p>
       <button onClick={refreshPage}>Try again !</button>
       <button onClick={sendPearl}>Submit to chest</button>

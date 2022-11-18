@@ -18,6 +18,44 @@ PearlGenerator, form {
 justify-content: center;
 border-radius: 30px;
 }
+PearlGenerator, textarea {
+    text-align: center;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    border-radius: 30px;
+}
+PearlGenerator, button {
+    width: 50%;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 30px;
+    background: linear-gradient(180deg, magenta, cyan);
+}
+PearlGenerator, p {
+    margin: 10px;
+    text-align: center;
+    line-height: 150%;
+    font-weight: bold;
+}
+PearlGenerator, message {
+    padding: 20px;
+}
+#pgsubmit {
+    transition-duration: 0.4s;
+   }
+   #pgsubmit:hover {
+     color: white;
+   }
+#oddLetters {
+    color: black;
+    margin: 10px;
+    text-align: center;
+    line-height: 150%;
+    font-weight: bold;
+    letter-spacing: 3px;
+    -webkit-text-stroke: 0.5px magenta;
+};
+
 PearlGenerator, label {
     margin-left: 850px;
     flex: auto;
