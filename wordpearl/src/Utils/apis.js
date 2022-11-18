@@ -126,7 +126,8 @@ export const getCommentByPearlId = (id) => {
 
 //postComment
 export const postComment = (comment) => {
-    return myAPI.get("/comments/")
+    console.log(comment)
+    return myAPI.get("/comments/", comment)
         .then((res) => {
             return res.data.comment
         })
