@@ -1,21 +1,33 @@
 import { Link } from 'react-router-dom'
+import './PearlCard.css'
 
 const PearlCard = ({ pearl }) => {
 
     const { id, title, body, username, votes, created_at, comments } = pearl;
-    
+
     return (
         <div>
-            <br/>
-            <Link to={`/pearls/${id}`}><h3>{title}</h3></Link>
-            <div>
-                <p> body: {body}</p>
-                <p> author: {username}</p>
-                <p> date: {created_at}</p>
-                <p> votes: {votes}</p>
-                <p> comments: {comments}</p>
+            <div className="card-container">
+                <div className="card">
+                    <div className="lines"></div>
+                    <div className="content">
+                        <div className="details">
+                            <Link to={`/pearls/${id}`}><h2>{title}</h2></Link>
+                            <h5> {body}</h5>
+
+                            <div className="data">
+                                <p> {username}</p>
+                                <p> {created_at}</p>
+                                <p> votes: {votes}</p>
+                                <p> "{comments}"</p>
+                            </div>
+                            <div className="actionBtn">
+                                <button>Click Me</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <br/>
         </div>
     )
 }
