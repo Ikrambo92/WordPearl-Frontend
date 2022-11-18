@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useEffect } from "react";
-import { patchCommentById } from "../Utils/apis";
+import { deleteCommentById, patchCommentById } from "../Utils/apis";
 
 const CommentById = ({ comment }) => {
   
@@ -8,6 +8,8 @@ const CommentById = ({ comment }) => {
     const [voteChange, setVoteChange] = useState(0);
     const [isvoteUp, setIsVoteUp] = useState(false)
     const [isvoteDown, setIsVoteDown] = useState(false)
+    const [deleting, setDeleting] = useState(false)
+    const user = {author: "Adawg"}
     let putVotes = 0
 
     useEffect(() => {
@@ -36,9 +38,17 @@ const CommentById = ({ comment }) => {
         patchCommentById(id, putVotes)
       }
 
+      const handleDelete = (event) => {
+        setDeleting(true)
+        deleteCommentById(event.target.value).then((response) => {
+          setDeleting(false)
+        })
+      }
+
     return (
     <section>
     <br />
+    {deleting && <p>Deleting comment...</p>}
     <dl key={id}>
       <dt>Username:</dt>
       <dd>{username}</dd>
@@ -48,6 +58,7 @@ const CommentById = ({ comment }) => {
       <button onClick={() => handleClickDown(id, votes)} disabled={isvoteDown}>👎</button>
       <p>Votes: {votes + voteChange} </p>
       <p>Date: {created_at}</p>
+      {user.author !== username ? <></> : <button id="deleteButton" value={id} onClick={handleDelete}>Delete 🗑️</button>}
     <br />
     </dl>
   </section>

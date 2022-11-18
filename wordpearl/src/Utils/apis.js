@@ -146,3 +146,14 @@ export const patchCommentById = (comment_id, putVotes) => {
             throw err;
         });
 };
+
+//deleteCommentById
+export const deleteCommentById = (id) => {
+    return myAPI.delete(`/comments/${id}`)
+      .then((res) => {
+
+      })
+      .catch((err) => {
+        throw err;
+      })
+}

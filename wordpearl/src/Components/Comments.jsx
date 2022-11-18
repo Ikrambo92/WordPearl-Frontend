@@ -17,7 +17,7 @@ const CommentsByPearl = () => {
         }).catch((err) => {
             console.log(err)
         })
-    }, [id])
+    }, [id, isComments])
 
     const handleChange = (event) => {
       setNewComment({
