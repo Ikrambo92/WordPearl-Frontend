@@ -2,45 +2,45 @@ import React from 'react'
 import './PearlGenerator.css'
 import { useState } from 'react';
 import pearlCheck from './PearlCheck'
+import { SuccessfulPearl } from './SuccessfulPearl';
 
 const PearlGenerator = ()=> {
+    const [message, setMessage] = useState('');
+    const [pearl, setPearl] = useState(false)
+ 
+    
 
-
-    const [pearl, setPearl] = useState('');
-    const [oddLetters, setOddLetters] = useState('')
-    const [isSuccessful, setisSuccessful] = useState(false)
-    const [text, setText] = useState('')
+    const handleChange = event => {
+        setMessage(event.target.value);
+    };
 
 
     const handleSubmit = event => {
         event.preventDefault()
-        console.log(oddLetters)
-        if (oddLetters === []) { 
-             setisSuccessful(true);
-        }
-        setPearl('')
+        if (pearlCheck(message).length === 0) {  
+            setPearl(true)
+        }   
     }
 
-    const handleChange = (event)=>{
-        setText(event.target.value)
-        setPearl(event.target.value);
-        setOddLetters(pearlCheck(pearl))
-        console.log(text)
-    }
+    if (pearl === false) {
 
-return <div className='pearlGenerator'>
+        return <div className='pearlGenerator'>
     <label className='pearlGenerator'>Create a Pearl !</label>
     <form >
-        <textarea name="pearl" id="pearl" cols="50" rows="12"
-        value={pearl} onChange={handleChange}></textarea>
-        <div >
-      { //Check if submission pearl
-        ( isSuccessful === true ) ? <p> Successful Pearl </p> : <p>Oddletters: {oddLetters} </p>
-        }
-    </div>
-    <button type='submit' onClick={handleSubmit}> Check Pearl </button>
+        <textarea type="text" name="message" id="message" cols="50" rows="12"
+        value={message} onChange={handleChange}></textarea>
+       <button id="pgsubmit" onClick={handleSubmit} >Submit</button>    
+           <p> Oddletters: {pearlCheck(message)} </p>
     </form>
 </div>
-}
 
+    } else {
+      return   <div>
+            <SuccessfulPearl/>
+        </div>
+    }
+ 
+
+
+}
 export default PearlGenerator;
