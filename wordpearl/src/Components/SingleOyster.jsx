@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { getOysterById } from '../Utils/apis';
 import { useParams } from 'react-router-dom';
 import { useState } from "react";
+import './PearlCard.css'
 
 
 const SingleOyster = () => {

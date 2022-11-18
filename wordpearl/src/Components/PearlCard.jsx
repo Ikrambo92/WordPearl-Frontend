@@ -18,11 +18,7 @@ const PearlCard = ({ pearl }) => {
                             <div className="data">
                                 <p> {username}</p>
                                 <p> {created_at}</p>
-                                <p> votes: {votes}</p>
-                                <p> "{comments}"</p>
-                            </div>
-                            <div className="actionBtn">
-                                <button>Click Me</button>
+                                <p> votes: <span>{votes}</span></p>
                             </div>
                         </div>
                     </div>

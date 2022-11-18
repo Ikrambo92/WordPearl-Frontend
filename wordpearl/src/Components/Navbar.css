@@ -13,6 +13,7 @@
   text-overflow: ellipsis;
   animation: marquee 10s linear infinite;
   font-size: 1.5rem;
+  margin-bottom: 10%;
 }
 
 .nav-list:hover {
