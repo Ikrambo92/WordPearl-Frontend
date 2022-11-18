@@ -3,15 +3,14 @@ import React from 'react'
 export const SuccessfulPearl = () => {
 
 
-const handleClick = event => {
-
-}
+  function refreshPage() {
+    window.location.reload(false);
+  }
 
   return <div>
-    <h1>PEARLS!!!</h1>
+    <h1 >Congratulations !!</h1>
       <p>Successful Pearl !</p>
-      <button onSubmit={handleClick}> Try Again ?</button>
-      {/* <button onClick={handleClick}> </button> */}
+      <button onClick={refreshPage}>Try again !</button>
     </div>
   
 }
