@@ -1,6 +1,6 @@
 const PearlCheck = (pearl) => {
 
-    let noPuncStr = pearl.replace(/[.,/#!$%^&*;:{}=\-_`~()]/g, "");
+    let noPuncStr = pearl.replace(/[.,/#!$%^&*;:{}=\-_`~()0-9]/g, "");
     let lowerCaseStr = noPuncStr.toLowerCase();
     let noSpaceStr = lowerCaseStr.replace(/\s+/g, "");
     var count = {};
