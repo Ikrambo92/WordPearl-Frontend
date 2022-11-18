@@ -27,8 +27,19 @@ export const getPearlById = (pearl_id) => {
 };
 
 //patchPearlById
-export const patchPearlById = (pearl_id, putVotes) => {
-    return myAPI.put(`/pearls/${pearl_id}`, { votes: putVotes })
+export const patchPearlById = (pearl_id, votes) => {
+    return myAPI.put(`/pearls/${pearl_id}`, { 'votes': (votes + 1) })
+        .then((res) => {
+            return res.data.pearl;
+        })
+        .catch((err) => {
+            throw err;
+        });
+};
+
+//postPearlById
+export const postPearl = (body) => {
+    return myAPI.post(`/pearls/`, {title: "examplePearl", username: "Dave", body: body, votes: 0, created_at: new Date()})
         .then((res) => {
             return res.data.pearl;
         })
