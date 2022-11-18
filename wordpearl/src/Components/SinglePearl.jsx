@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getPearlById, patchPearlById } from '../Utils/apis';
-//import CommentList from "./CommentList";
+import CommentsById from './Comments';
 
 const SinglePearl = () => {
 
@@ -10,6 +10,8 @@ const SinglePearl = () => {
     const { id } = useParams();
     const [isLoading, setIsLoading] = useState(true);
     const [voteChange, setVoteChange] = useState(0);
+    const [isvoteUp, setIsVoteUp] = useState(false)
+    const [isvoteDown, setIsVoteDown] = useState(false)
     let putVotes = 0
 
     useEffect(() => {
@@ -21,6 +23,19 @@ const SinglePearl = () => {
         setIsLoading(false);
       });
     }, [id, votes]);
+
+    useEffect(() => {
+      if (voteChange > 0){
+        setIsVoteUp(true)
+      }
+      if (voteChange < 0){
+        setIsVoteDown(true)
+      }
+      if (voteChange === 0){
+        setIsVoteUp(false)
+        setIsVoteDown(false)
+      }
+    }, [voteChange])
 
     const handleClickUp = () => {
       putVotes = votes + 1
@@ -44,11 +59,11 @@ const SinglePearl = () => {
                   <h3>Author: {username}</h3>
                   <h4>Date: {created_at}</h4>
           <div>
-            <button onClick={() => handleClickUp()}>👍</button>
-            <button onClick={() => handleClickDown()}>👎</button>
+            <button onClick={() => handleClickUp()} disabled={isvoteUp}>👍</button>
+            <button onClick={() => handleClickDown()} disabled={isvoteDown}>👎</button>
             <h5>Votes: {votes + voteChange} </h5>
         </div>
-        {/* <CommentList /> */}
+        <CommentsById />
       </section>
       </main>
     );
