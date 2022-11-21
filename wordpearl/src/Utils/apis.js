@@ -4,11 +4,37 @@ const myAPI = axios.create({
     baseURL: "https://wordpearl-be.herokuapp.com",
 });
 
+const poemAPI = axios.create({
+    baseURL: "https://poetrydb.org"
+})
+
+//getpoem
+export const getPoem = () => {
+    return poemAPI.get("/random")
+        .then((res) => {
+            return res.data
+        })
+        .catch((err) => {
+            throw err;
+        })
+}
+
 //getPearls
 export const getPearls = () => {
     return myAPI.get("/pearls/")
         .then((res) => {
             return res.data.pearls
+        })
+        .catch((err) => {
+            throw err;
+        });
+}
+
+//getPearlsByUsername 
+export const getPearlsByUsername = (username) => {
+    return myAPI.get(`/searchpearls/?search=${username}`)
+        .then((res) => {
+            return res.data
         })
         .catch((err) => {
             throw err;
@@ -39,7 +65,7 @@ export const patchPearlById = (pearl_id, votes) => {
 
 //postPearlById
 export const postPearl = (body) => {
-    return myAPI.post(`/pearls/`, {title: "examplePearl", username: "Dave", body: body, votes: 0, created_at: new Date()})
+    return myAPI.post(`/pearls/`, { title: "examplePearl", username: "Dave", body: body, votes: 0, created_at: new Date() })
         .then((res) => {
             return res.data.pearl;
         })
@@ -75,9 +101,9 @@ export const getOystersByPoints = () => {
         console.log(res.data, 'api')
         return res.data;
     })
-    .catch((err) => {
-        throw err;
-    })
+        .catch((err) => {
+            throw err;
+        })
 }
 
 //getOyserByUsername
@@ -172,10 +198,10 @@ export const patchCommentById = (comment_id, putVotes) => {
 //deleteCommentById
 export const deleteCommentById = (id) => {
     return myAPI.delete(`/comments/${id}`)
-      .then((res) => {
+        .then((res) => {
 
-      })
-      .catch((err) => {
-        throw err;
-      })
+        })
+        .catch((err) => {
+            throw err;
+        })
 }
