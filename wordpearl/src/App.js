@@ -6,12 +6,13 @@ import Footer from './Components/Footer.jsx'
 import PearlGenerator from './Components/PearlGenerator'
 import Pearls from './Components/Pearls'
 import Comments from './Components/Comments'
-import Oysters from './Components/Oysters'
-import SuccessfulPearl from './Components/SuccessfulPearl'
+// import Oysters from './Components/Oysters'
+// import SuccessfulPearl from './Components/SuccessfulPearl'
 import SinglePearl from './Components/SinglePearl'
 import Signup from './Components/Signup'
 import Home from './Components/Home'
-import SingleOyster from './Components/SingleOyster'
+// import SingleOyster from './Components/SingleOyster'
+import LeaderBoard from './Components/LeaderBoard'
 
 function App() {
   return (
@@ -25,11 +26,12 @@ function App() {
         <Route path='/Pearls' element={<Pearls />} />
         <Route path="/Pearls/:id" element={<SinglePearl />}></Route>
         <Route path='/Comments' element={<Comments />} />
-        <Route path='/Oysters/:id' element={<SingleOyster />} />
+        {/* <Route path='/Oysters/:id' element={<SingleOyster />} /> */}
         <Route path='/PearlGenerator' element={<PearlGenerator />} />
-        <Route path='/SuccessfulPearl' element={<Pearls />} />
+        {/* <Route path='/SuccessfulPearl' element={<Pearls />} /> */}
         <Route path='/Signup' element={<Signup />} />
         <Route path='/' element={<Home />} />
+        <Route path='/LeaderBoard' element={<LeaderBoard />} />
       </Routes>
       <Footer />
     </div>
