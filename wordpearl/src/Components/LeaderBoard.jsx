@@ -28,7 +28,7 @@ const LeaderBoard = () => {
                 <div key={oysters.id}>
                     <li>Oyster ID Number: {oysters.id}</li>
                     <li>Username: {oysters.username}</li>
-                    <li> <img src={oysters.avatar_url} alt="avatar" />
+                    <li> <img src={oysters.avatar_url} alt="avatar" style={{width: "200px", height:"200px"}} />
                         Avatar:</li>
                 </div>
             )
