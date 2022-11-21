@@ -15,6 +15,17 @@ export const getPearls = () => {
         });
 }
 
+//getPearlsByUsername 
+export const getPearlsByUsername = (username) => {
+    return myAPI.get(`/searchpearls/?search=${username}`)
+        .then((res) => {
+            return res.data
+        })
+        .catch((err) => {
+            throw err;
+        });
+}
+
 //getPearlById
 export const getPearlById = (pearl_id) => {
     return myAPI.get(`/pearls/${pearl_id}`)
@@ -39,7 +50,7 @@ export const patchPearlById = (pearl_id, votes) => {
 
 //postPearlById
 export const postPearl = (body) => {
-    return myAPI.post(`/pearls/`, {title: "examplePearl", username: "Dave", body: body, votes: 0, created_at: new Date()})
+    return myAPI.post(`/pearls/`, { title: "examplePearl", username: "Dave", body: body, votes: 0, created_at: new Date() })
         .then((res) => {
             return res.data.pearl;
         })
@@ -75,9 +86,9 @@ export const getOystersByPoints = () => {
         console.log(res.data, 'api')
         return res.data;
     })
-    .catch((err) => {
-        throw err;
-    })
+        .catch((err) => {
+            throw err;
+        })
 }
 
 //getOyserByUsername
@@ -172,10 +183,10 @@ export const patchCommentById = (comment_id, putVotes) => {
 //deleteCommentById
 export const deleteCommentById = (id) => {
     return myAPI.delete(`/comments/${id}`)
-      .then((res) => {
+        .then((res) => {
 
-      })
-      .catch((err) => {
-        throw err;
-      })
+        })
+        .catch((err) => {
+            throw err;
+        })
 }
