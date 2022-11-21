@@ -69,6 +69,15 @@ export const getOysterById = (oyster_id) => {
             throw err;
         });
 };
+//getOystersByPoints
+export const getOystersByPoints = () => {
+    return myAPI.get(`/searchoysters/?ordering=-points`).then((res) => {
+        return res.data.oysters;
+    })
+    .catch((err) => {
+        throw err;
+    })
+}
 
 //getOyserByUsername
 export const getOysterByUsername = (username) => {
