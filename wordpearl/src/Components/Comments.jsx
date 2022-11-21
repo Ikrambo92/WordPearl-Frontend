@@ -2,10 +2,13 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getCommentByPearlId, postComment} from "../Utils/apis";
+import { useContext } from 'react';
+import { UserContext } from '../Context/UserContext';
 import CommentById from "./CommentById";
 
 const CommentsByPearl = () => { 
 
+    const { user } = useContext(UserContext)
     const { id } = useParams()
     const [isComments, setIsComments] = useState([])
     const [newComment, setNewComment] = useState('')
@@ -22,10 +25,10 @@ const CommentsByPearl = () => {
     const handleChange = (event) => {
       setNewComment({
         "body": event.target.value,
-        "username": 1,
-        "pearl_id": 1,
+        "username": user.username,
+        "pearl_id": id,
         "created_at": "2022-11-18",
-        "votes": 10
+        "votes": 0
       })
     }
 
@@ -33,6 +36,9 @@ const CommentsByPearl = () => {
       if(newComment === ''){
         alert("You cannot submit an empty comment")
         return;
+      }
+      if(user.username === undefined){
+        alert('Please sign-in to comment')
       }
       setPosting(true)
       postComment(newComment).then((response) => {
