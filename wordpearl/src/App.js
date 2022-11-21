@@ -19,12 +19,12 @@ function App() {
   console.log(user)
 
   return (
-    <UserContext.Provider value={{user, setUser}}>
     <div className="App">
       <div className="heading">
         <h1>Word<span>Pearl</span></h1>
       </div>
       <Navbar />
+      <UserContext.Provider value={{user, setUser}}>
       <Routes>
         <Route path='/Login' element={<Login />} />
         <Route path='/Pearls' element={<Pearls />} />
@@ -36,9 +36,9 @@ function App() {
         <Route path='/Signup' element={<Signup />} />
         <Route path='/' element={<Home />} />
       </Routes>
+      </UserContext.Provider>
       <Footer />
     </div>
-    </UserContext.Provider>
   );
 }
 

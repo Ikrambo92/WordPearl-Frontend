@@ -85,7 +85,8 @@ export const getOysterByUsername = (username) => {
 export const postOyster = (oyster) => {
     return myAPI.post(`/oysters/`, oyster)
         .then((res) => {
-            return res.data.oyster;
+            console.log(res.data)
+            return res.data;
         })
         .catch((err) => {
             throw err;

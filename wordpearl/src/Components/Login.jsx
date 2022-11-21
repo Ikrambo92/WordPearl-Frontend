@@ -8,11 +8,10 @@ import { useState } from 'react';
 
 const Login = () => {
 
-    const { user, setUser } = useContext(UserContext)
-    const [newOyster, setNewOyster] = useState({})
+    const { setUser } = useContext(UserContext)
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
-    const [avaUrl, setAvaUrl] = useState('')
+    const [isLogginIn, setIsLogginIn] = useState(false)
 
     const handleChangeUsername = (event) => {
         setUsername(event.target.value)
@@ -22,21 +21,24 @@ const Login = () => {
        setPassword(event.target.value)
     }
 
-    const handleChangeUrl = (event) => {
-       setAvaUrl(event.target.value)
-    }
-
-    console.log(user)
-
     const handleClick = (event) => {
+      if(username === '' || password === ''){
+        alert('Both the username and password must be filled in')
+        return
+       }
        event.preventDefault()
        getOysterByUsername(username).then((response) => {
        if(response.length !== 0 && password === response[0].password){
+        setIsLogginIn(true)
         setUser(response[0])
+        setIsLogginIn(false)
+       } else {
+        alert('username or password is incorrect')
        }
        })
     }
 
+    if(isLogginIn) return <h2>Loggin in...</h2>
     return (
         <div className="login-container">
             <div className='creds'>
@@ -46,11 +48,10 @@ const Login = () => {
                 <input type="text" name="username-input" id="uname" placeholder='John123' onChange={handleChangeUsername} />
                 <h3>Password</h3>
                 <input type="text" name="password-input" id="pname" placeholder='Password123' onChange={handleChangePassword}/>
-                <a href='#'>Forgot Password?</a>
-                {/* <Link to='/signup'>Dont have an account? Sign up!</Link> */}
                 <div className="button">
                     <button onClick={handleClick} >Login</button>
                 </div>
+                <Link to='/signup'>Don't have an account? sign-up...</Link>
                 </form>
             </div>
         </div>
@@ -58,13 +59,3 @@ const Login = () => {
 }
 
 export default Login
-
-{/* <h3>Avatar URL</h3>
-                <input type="text" name="Avatar-URL-input" id="avname" placeholder='URL' onChange={handleChangeUrl}/> */}
-
-// setNewOyster({
-//     username: username,
-//     password: password,
-//     avatar_url: avaUrl,
-//     points: 0
-//    })
