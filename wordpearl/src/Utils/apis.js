@@ -4,6 +4,21 @@ const myAPI = axios.create({
     baseURL: "https://wordpearl-be.herokuapp.com",
 });
 
+const poemAPI = axios.create({
+    baseURL: "https://poetrydb.org"
+})
+
+//getpoem
+export const getPoem = () => {
+    return poemAPI.get("/random")
+        .then((res) => {
+            return res.data
+        })
+        .catch((err) => {
+            throw err;
+        })
+}
+
 //getPearls
 export const getPearls = () => {
     return myAPI.get("/pearls/")
