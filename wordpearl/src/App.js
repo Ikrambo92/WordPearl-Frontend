@@ -7,8 +7,6 @@ import PearlGenerator from './Components/PearlGenerator'
 import Pearls from './Components/Pearls'
 import Comments from './Components/Comments'
 import SinglePearl from './Components/SinglePearl'
-import Signup from './Components/Signup'
-import Home from './Components/Home'
 import SingleOyster from './Components/SingleOyster'
 import { UserContext } from './Context/UserContext'
 import { useState } from 'react'
@@ -19,7 +17,6 @@ import LeaderBoard from './Components/LeaderBoard'
 function App() {
 
   const [user, setUser] = useState({})
-  console.log(user)
 
   return (
     <div className="App">
@@ -33,7 +30,7 @@ function App() {
         <Route path='/Pearls' element={<Pearls />} />
         <Route path="/Pearls/:id" element={<SinglePearl />}></Route>
         <Route path='/Comments' element={<Comments />} />
-        {/* <Route path='/Oysters/:id' element={<SingleOyster />} /> */}
+        <Route path='/Oysters/:id' element={<SingleOyster />} />
         <Route path='/PearlGenerator' element={<PearlGenerator />} />
         {/* <Route path='/SuccessfulPearl' element={<Pearls />} /> */}
         <Route path='/Signup' element={<Signup />} />
