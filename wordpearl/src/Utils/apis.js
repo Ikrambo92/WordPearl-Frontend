@@ -72,7 +72,8 @@ export const getOysterById = (oyster_id) => {
 //getOystersByPoints
 export const getOystersByPoints = () => {
     return myAPI.get(`/searchoysters/?ordering=-points`).then((res) => {
-        return res.data.oysters;
+        console.log(res.data, 'api')
+        return res.data;
     })
     .catch((err) => {
         throw err;
