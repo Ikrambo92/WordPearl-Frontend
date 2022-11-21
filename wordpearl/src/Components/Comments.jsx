@@ -23,13 +23,7 @@ const CommentsByPearl = () => {
     }, [id, isComments])
 
     const handleChange = (event) => {
-      setNewComment({
-        "body": event.target.value,
-        "username": user.username,
-        "pearl_id": id,
-        "created_at": "2022-11-18",
-        "votes": 0
-      })
+      setNewComment(event.target.value)
     }
 
     const handleClick = () => {
@@ -39,9 +33,16 @@ const CommentsByPearl = () => {
       }
       if(user.username === undefined){
         alert('Please sign-in to comment')
+        return;
       }
       setPosting(true)
-      postComment(newComment).then((response) => {
+      postComment({
+        "body": newComment,
+        "username": user.id,
+        "pearl_id": id,
+        "created_at": "2022-11-18",
+        "votes": 0
+      }).then((response) => {
         setPosting(false)
       })
     }

@@ -93,6 +93,7 @@ export const getOysterByUsername = (username) => {
 
 //postOyster
 export const postOyster = (oyster) => {
+    console.log(oyster)
     return myAPI.post(`/oysters/`, oyster)
         .then((res) => {
             console.log(res.data)
@@ -148,7 +149,6 @@ export const getCommentByPearlId = (id) => {
 
 //postComment
 export const postComment = (comment) => {
-    console.log(comment)
     return myAPI.post("/comments/", comment)
         .then((res) => {
             return res.data.comment

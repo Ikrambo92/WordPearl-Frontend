@@ -16,7 +16,9 @@ const Navbar = () => {
                     <Link to={'/PearlGenerator'}>
                         <li>Generate Pearls</li>
                     </Link>
+                    <Link to={'/pearls'}>
                     <li>Chest of Pearls</li>
+                    </Link>
                     <Link to={'/LeaderBoard'}>
                         <li>Leader Board</li>
                     </Link>
