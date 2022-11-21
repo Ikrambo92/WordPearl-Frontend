@@ -6,15 +6,20 @@ import Footer from './Components/Footer.jsx'
 import PearlGenerator from './Components/PearlGenerator'
 import Pearls from './Components/Pearls'
 import Comments from './Components/Comments'
-import Oysters from './Components/Oysters'
-import SuccessfulPearl from './Components/SuccessfulPearl'
 import SinglePearl from './Components/SinglePearl'
 import Signup from './Components/Signup'
 import Home from './Components/Home'
 import SingleOyster from './Components/SingleOyster'
+import { UserContext } from './Context/UserContext'
+import { useState } from 'react'
 
 function App() {
+
+  const [user, setUser] = useState({})
+  console.log(user)
+
   return (
+    <UserContext.Provider value={{user, setUser}}>
     <div className="App">
       <div className="heading">
         <h1>Word<span>Pearl</span></h1>
@@ -33,6 +38,7 @@ function App() {
       </Routes>
       <Footer />
     </div>
+    </UserContext.Provider>
   );
 }
 

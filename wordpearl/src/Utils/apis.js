@@ -70,9 +70,20 @@ export const getOysterById = (oyster_id) => {
         });
 };
 
+//getOyserByUsername
+export const getOysterByUsername = (username) => {
+    return myAPI.get(`/searchoysters/?search=${username}`)
+        .then((res) => {
+            return res.data;
+        })
+        .catch((err) => {
+            throw err;
+        });
+};
+
 //postOyster
 export const postOyster = (oyster) => {
-    return myAPI.post(`/oysters/`)
+    return myAPI.post(`/oysters/`, oyster)
         .then((res) => {
             return res.data.oyster;
         })
