@@ -1,6 +1,7 @@
 import React from 'react';
 import { getOystersByPoints } from '../Utils/apis';
 import { useEffect, useState } from 'react';
+import './LeaderBoard.css'
 
 const LeaderBoard = () => {
 
@@ -21,19 +22,22 @@ const LeaderBoard = () => {
 
 
     return <div>
-        <h2>LEADER BOARD</h2>
-        <ul className="oysterCard"  >
+        <div className="board" id='profile'>
+        <h2  className='leaderboard' >LEADER BOARD</h2>
+        <ul >
         {oysters.map((oysters) => {
             return (
                 <div key={oysters.id}>
-                    <li>Oyster ID Number: {oysters.id}</li>
+                    <li>Oyster ID : {oysters.id}</li>
                     <li>Username: {oysters.username}</li>
-                    <li> <img src={oysters.avatar_url} alt="avatar" style={{width: "200px", height:"200px"}} />
-                        Avatar:</li>
+                    <li><img src={oysters.avatar_url} alt="avatar" style={{width: "200px", height:"200px"}} />
+                        </li>
+                        <li>  <span>Score: {oysters.points}</span> </li>
                 </div>
             )
         })}
         </ul>
+        </div>
         </div>
     
 
