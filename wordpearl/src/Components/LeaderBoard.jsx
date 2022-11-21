@@ -22,10 +22,10 @@ const LeaderBoard = () => {
 
     return <div>
         <h2>LEADER BOARD</h2>
-        <ul className="oysterCard" key={oysters.id} >
+        <ul className="oysterCard"  >
         {oysters.map((oysters) => {
             return (
-                <div>
+                <div key={oysters.id}>
                     <li>Oyster ID Number: {oysters.id}</li>
                     <li>Username: {oysters.username}</li>
                     <li>Avatar: {oysters.avatar_url}</li>
