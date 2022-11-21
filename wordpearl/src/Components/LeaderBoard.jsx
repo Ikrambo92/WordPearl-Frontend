@@ -28,7 +28,8 @@ const LeaderBoard = () => {
                 <div key={oysters.id}>
                     <li>Oyster ID Number: {oysters.id}</li>
                     <li>Username: {oysters.username}</li>
-                    <li>Avatar: {oysters.avatar_url}</li>
+                    <li> <img src={oysters.avatar_url} alt="avatar" />
+                        Avatar:</li>
                 </div>
             )
         })}
