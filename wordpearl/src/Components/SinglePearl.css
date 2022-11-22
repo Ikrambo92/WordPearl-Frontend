@@ -1,3 +1,7 @@
 #singlepearl {
-    padding-top: 300px;
+    padding-top: 400px;
+}
+
+.votebutton {
+    border:10px solid red;
 }

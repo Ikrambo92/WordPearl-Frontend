@@ -14,6 +14,7 @@ const CommentById = ({ comment }) => {
     const [isvoteDown, setIsVoteDown] = useState(false)
     const [deleting, setDeleting] = useState(false)
 
+    
     useEffect(() => { 
         setVoteCount(votes)    
     },[votes])
@@ -31,23 +32,26 @@ const CommentById = ({ comment }) => {
         }
       }, [voteChange])
 
+
     const handleClickUp = () => {
-        setVoteChange((currentVoteChange) => currentVoteChange + 1);
-        setVoteCount((currentVoteCount) => currentVoteCount + 1)
+      setVoteChange((currentVoteChange) => currentVoteChange + 1);
+      setVoteCount((currentVoteCount) => currentVoteCount + 1)
       patchCommentById(id, voteCount + 1);
     }
-  
-      const handleClickDown = () => {
-        setVoteChange((voteChange) => voteChange - 1);
-        patchCommentById(id, voteCount - 1)
-      }
 
-      const handleDelete = (event) => {
-        setDeleting(true)
-        deleteCommentById(event.target.value).then((response) => {
-          setDeleting(false)
-        })
-      }
+    const handleClickDown = () => {
+      setVoteChange((currentVoteChange) => currentVoteChange - 1);
+      setVoteCount((currentVoteCount) => currentVoteCount -1 )
+      patchCommentById(id, voteCount - 1)
+    }
+
+    const handleDelete = (event) => {
+      setDeleting(true)
+      deleteCommentById(event.target.value).then((response) => {
+        setDeleting(false)
+      })
+    }
+
 
     return (
     <section>

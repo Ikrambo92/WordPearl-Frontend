@@ -15,6 +15,7 @@ const SinglePearl = () => {
   const [isvoteUp, setIsVoteUp] = useState(false)
   const [isvoteDown, setIsVoteDown] = useState(false)
 
+
   useEffect(() => {
     getPearlById(id).then((res) => {
       setPearl(res)
@@ -39,6 +40,7 @@ const SinglePearl = () => {
     }
   }, [voteChange])
 
+
   const handleClickUp = () => {
     setVoteCount((CurrentVoteCount) => CurrentVoteCount + 1)
     setVoteChange((currentChange) => currentChange + 1)
@@ -54,6 +56,7 @@ const SinglePearl = () => {
   }
 
   if (isLoading) return (<h2>Loading pearl...</h2>)
+
 
       return (
       <main>
