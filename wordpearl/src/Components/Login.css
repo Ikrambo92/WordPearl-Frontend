@@ -126,3 +126,22 @@ margin-bottom: 30px;
 text-transform: capitalize;
 }
 
+/* ----------------------- */
+/* After Login */
+
+.after-login {
+  height: 50vh;
+  margin-top: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column wrap;
+}
+
+.after-login button {
+  margin-bottom: 31%;
+}
+
+.logout {
+  
+}

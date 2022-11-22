@@ -1,30 +1,22 @@
 import React from 'react'
-import { useState } from 'react';
-import { postPearl } from '../Utils/apis';
+import './SuccessfulPearl.css'
+
+
 
 export const SuccessfulPearl = (message) => {
-
-  const {body} = message
-  const [pearl, setPearl] = useState({})
 
   function refreshPage() {
     window.location.reload(false);
   }
 
-  function sendPearl() {
-    postPearl(body).then((res)=>{
-      setPearl(res)
-    })
-  }
-
-
-  return <div className="congratsPage">
-    <h1 id="banner">Congratulations !!</h1>
+  return (
+    <div className="congratsPage">
+      <h1 id="banner">Congratulations!!!</h1>
       <p>Successful Pearl !</p>
+      <p>+10 points</p>
       <button onClick={refreshPage}>Try again !</button>
-      <button onClick={sendPearl}>Submit to chest</button>
     </div>
-  
+  )
 }
 
 export default SuccessfulPearl;
