@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { getPearlById, patchPearlById } from '../Utils/apis';
+import { getOysterByUsername, getPearlById, patchPearlById, putOyster } from '../Utils/apis';
 import CommentsById from './Comments';
 
 const SinglePearl = () => {
@@ -40,12 +40,18 @@ const SinglePearl = () => {
     const handleClickUp = () => {
       putVotes = votes + 1
       setVoteChange((voteChange) => voteChange + 1);
+      getOysterByUsername(pearl.username).then((res) => {
+        putOyster(res.id, (res.points + 1))
+      })
     patchPearlById(id, putVotes);
   }
 
     const handleClickDown = () => {
       putVotes = votes - 1
       setVoteChange((voteChange) => voteChange - 1);
+      getOysterByUsername(pearl.username).then((res) => {
+        putOyster(res.id, (res.points - 1))
+      })
       patchPearlById(id, putVotes)
     }
 
