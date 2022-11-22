@@ -1,24 +1,25 @@
 import { useEffect } from "react";
-import { getOysterById } from '../Utils/apis';
-import { useParams } from 'react-router-dom';
+import { getPearlsByUsername } from '../Utils/apis';
 import { useState } from "react";
 import './SingleOyster.css'
-
+import './PearlCard.css'
+import { UserContext } from "../Context/UserContext";
+import { useContext } from "react";
+import PearlCard from "./PearlCard";
 
 const SingleOyster = () => {
 
-    const { id } = useParams();
-
-    const [oyster, setOyster] = useState({})
+    const [pearlsList, setPearlsList] = useState([]);
+    
+    const { user } = useContext(UserContext);
 
     useEffect(() => {
-        getOysterById(id).then((response) => {
-            setOyster(response)
+        getPearlsByUsername(user.username).then((userPearls) => {
+            setPearlsList(userPearls)
         })
-    })
+    }, [user.username])
 
     return (
-
         <article>
             <div className="card-container1">
                 <div className="card1">
@@ -38,7 +39,15 @@ const SingleOyster = () => {
                     </div>
                 </div>
             </div>
-
+            <div>
+                <p> author: {user.username}</p>
+                <p> points: {user.points}</p>
+                <img src={user.avatar_url} alt={user.username}></img>
+                {/* <Pearls username={user.username} /> */}
+                {pearlsList.map((pearl) => {
+                    return <PearlCard key={pearl.id} pearl={pearl} />;
+                })}
+            </div>
         </article>
     )
 }

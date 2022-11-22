@@ -10,15 +10,23 @@ const Navbar = () => {
                     <h1>Word<span>Pearl '</span><span className='bubble'></span></h1>
                 </div>
                 <ul className='nav-list'>
+
                     <Link to={'/'}>
                         <li>Home</li>
                     </Link>
+
                     <Link to={'/Login'}>
+                        <li>Login</li>
+                    </Link>
+
+                    <Link to={'/Oyster'}>
                         <li>Oyster Profile</li>
                     </Link>
+
                     <Link to={'/PearlGenerator'}>
                         <li>Generate Pearls</li>
                     </Link>
+                    
                     <li>Chest of Pearls</li>
                     <li onClick={() => {
                         window.scroll({
@@ -27,7 +35,10 @@ const Navbar = () => {
                             behaviour: 'smooth'
                         })
                     }}>How To Play?</li>
-                    <hr />
+
+                    <Link to={'/LeaderBoard'}>
+                        <li>Leader Board</li>
+                    </Link>
                 </ul>
             </nav>
         </div>
