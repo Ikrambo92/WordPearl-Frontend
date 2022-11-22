@@ -24,7 +24,7 @@
     -webkit-text-fill-color: transparent;
 }
 
-.congratsPage padding:nth-child(2) {
+.congratsPage p:nth-child(2) {
     margin-top: 10px;
     letter-spacing: 3px;
     text-decoration: solid;
