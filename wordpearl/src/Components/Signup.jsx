@@ -7,7 +7,7 @@ import { useState } from 'react';
 
 const Signup = () => {
 
-    const { setUser } = useContext(UserContext)
+    const { user, setUser } = useContext(UserContext)
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
@@ -57,8 +57,13 @@ const Signup = () => {
           }
         })
     }
+
+    const handleLogoutClick = () => {
+        setUser({})
+    }
    
     if(isSignUp) return <h2>Signing up!...</h2>
+    if(user.id === undefined){
     return (
         <div className="login-container">
             <div className='creds'>
@@ -77,6 +82,14 @@ const Signup = () => {
             </div>
         </div>
     )
+  } else {
+    return (
+        <div>
+          <h2>You're signed in as {user.username}</h2>
+          <button onClick={handleLogoutClick}>Logout</button>
+        </div>
+    )
+  }
 }
 
 export default Signup

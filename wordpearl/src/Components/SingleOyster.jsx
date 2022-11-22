@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { getPearlsByUsername } from '../Utils/apis';
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import './SingleOyster.css'
 import './PearlCard.css'
 import { UserContext } from "../Context/UserContext";
@@ -19,6 +20,9 @@ const SingleOyster = () => {
         })
     }, [user.username])
 
+    if(user.id === undefined){
+        return <h2>Please <Link to={'/Login'} >log in</Link></h2>
+    } else {
     return (
         <article>
             <div className="card-container1">
@@ -47,6 +51,7 @@ const SingleOyster = () => {
          
         </article>
     )
+  }
 }
 
 export default SingleOyster;

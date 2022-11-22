@@ -7,7 +7,7 @@ import myGif from "./WPword_earl.gif";
 import myGif2 from "./WPpearlie.gif";
 import { useContext } from 'react';
 import { UserContext } from '../Context/UserContext';
-import { getPoem, postPearl } from "../Utils/apis";
+import { getOysterById, getPoem, postPearl, putOyster } from "../Utils/apis";
 
 
 const PearlGenerator = () => {
@@ -44,7 +44,10 @@ const PearlGenerator = () => {
       "votes": 0
     }).then((res) => {
     })
-
+    getOysterById(user.id).then((res) => {
+      putOyster(user.id, (res.points + 10))
+    }).then(() => {
+    })
     setPearl(true);
     }
   };

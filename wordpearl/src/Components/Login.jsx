@@ -8,7 +8,7 @@ import { useState } from 'react';
 
 const Login = () => {
 
-    const { setUser } = useContext(UserContext)
+    const { user, setUser } = useContext(UserContext)
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [isLogginIn, setIsLogginIn] = useState(false)
@@ -38,7 +38,12 @@ const Login = () => {
        })
     }
 
+    const handleLogoutClick = () => {
+        setUser({})
+    }
+
     if(isLogginIn) return <h2>Loggin in...</h2>
+    if(user.id === undefined){
     return (
         <div className="login-container">
             <div className='creds'>
@@ -56,6 +61,14 @@ const Login = () => {
             </div>
         </div>
     )
+    } else {
+        return (
+            <div>
+              <h2>You're signed in as {user.username}</h2>
+              <button onClick={handleLogoutClick}>Logout</button>
+            </div>
+        )
+      }
 }
 
 export default Login
