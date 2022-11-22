@@ -14,7 +14,6 @@ const Footer = () => {
                         <li onClick={() => {
                             window.scroll({
                                 top: document.body.offsetHeight,
-                                top: 0,
                                 behaviour: 'smooth'
                             })
                         }}>return to top</li>

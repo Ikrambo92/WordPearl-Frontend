@@ -25,13 +25,18 @@ const SingleOyster = () => {
                 <div className="card1">
                     <div className="lines1"></div>
                     <div className="imgBx">
-                        <img src={oyster.avatar_url} alt={oyster.username}></img>
+                        <img src={user.avatar_url} alt={user.username}></img>
                     </div>
                     <div className="content1">
                         <div className="details1">
-                            <h2> Author: {oyster.username}</h2>
-                            <p> points: <span>{oyster.points}</span></p>
+                            <h2> Author: {user.username}</h2>
+                            <p> points: <span>{user.points}</span></p>
+
+                                {pearlsList.map((pearl) => {
+                    return <PearlCard key={pearl.id} pearl={pearl} />;
+                })}
                         </div>
+                        
                         <div className="data1">
                             <p>Most Voted:</p>
                             <p>"Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, architecto iure? Aliquam placeat ex"</p>
@@ -39,15 +44,7 @@ const SingleOyster = () => {
                     </div>
                 </div>
             </div>
-            <div>
-                <p> author: {user.username}</p>
-                <p> points: {user.points}</p>
-                <img src={user.avatar_url} alt={user.username}></img>
-                {/* <Pearls username={user.username} /> */}
-                {pearlsList.map((pearl) => {
-                    return <PearlCard key={pearl.id} pearl={pearl} />;
-                })}
-            </div>
+         
         </article>
     )
 }
