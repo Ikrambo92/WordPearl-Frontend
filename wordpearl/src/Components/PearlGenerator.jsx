@@ -7,7 +7,7 @@ import myGif from "./WPword_earl.gif";
 import myGif2 from "./WPpearlie.gif";
 import { useContext } from 'react';
 import { UserContext } from '../Context/UserContext';
-import { getPoem, postOyster, postPearl } from "../Utils/apis";
+import { getPoem, postPearl } from "../Utils/apis";
 
 
 const PearlGenerator = () => {
@@ -16,7 +16,6 @@ const PearlGenerator = () => {
   const [title, setTitle] = useState("")
   const [pearl, setPearl] = useState(false);
   const [poem, setPoem] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (event) => {
     const result = event.target.value.replace(/[^a-z\s]/gi, "");
@@ -44,40 +43,38 @@ const PearlGenerator = () => {
       "created_at": "2022-11-18",
       "votes": 0
     }).then((res) => {
-
     })
+
     setPearl(true);
     }
   };
 
-  // const handleClickPoem = () => {
-  //   getPoem().then((res) => {
-  //     console.log(res)
-  //     setPoem(res[0])
-  //     console.log(poem)
-  //     console.log(poem.length)
-  //   });
-  // }
+  const handleClickPoem = () => {
+    getPoem().then((res) => {
+    setPoem(res)
+    });
+  }
 
   if (pearl === false) {
     return (
       <div className="pearlGenerator">
         <h2 className="pearlGenerator">Create a Pearl !</h2>
-        <img
+        <form>
+          <textarea type="text" name="title" id="title" cols="50" rows="1" onChange={handleChangeTitle} placeholder="title"></textarea>
+          <br />
+          <img
           src={myGif}
           alt={"my-gif"}
           style={{ width: "200px", height: "200px" }}
         />
-        <img
+          <textarea type="text" name="message" id="message" cols="50" rows="12" value={message} onChange={handleChange} placeholder="pearl"></textarea>
+          <img
           src={myGif2}
           alt={"my-gif2"}
           style={{ width: "200px", height: "200px" }}
         />
-        <form>
-          <textarea type="text" name="title" id="title" cols="50" rows="1" onChange={handleChangeTitle} placeholder="title"></textarea>
           <br />
-          <textarea type="text" name="message" id="message" cols="50" rows="12" value={message} onChange={handleChange} placeholder="pearl"></textarea>
-          <br />
+
           <button id="pgsubmit" onClick={handleSubmit}>Submit</button>
           <p id="oddLetters">
             {" "}
@@ -92,6 +89,15 @@ const PearlGenerator = () => {
           text field. You will have a Pearl when there are no Odd Letters
           displayed. Good Luck!
         </p>
+        <button onClick={handleClickPoem} >Inspire Me</button>
+       {poem.length > 0 ? <div>
+        <ul>
+          <br />
+          <li>Title: {poem[0].title}, Author: {poem[0].author}</li>
+          <br />
+          <li>{poem[0].lines.slice(0, 10)}</li>
+        </ul>
+        </div> : <></>}
       </div>
     );
   } else {
