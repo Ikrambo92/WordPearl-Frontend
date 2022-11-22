@@ -65,7 +65,6 @@ export const patchPearlById = (pearl_id, votes) => {
 
 //postPearlById
 export const postPearl = (pearl) => {
-    console.log(pearl)
     return myAPI.post(`/pearls/`, pearl)
         .then((res) => {
             return res.data.pearl;
@@ -99,7 +98,6 @@ export const getOysterById = (oyster_id) => {
 //getOystersByPoints
 export const getOystersByPoints = () => {
     return myAPI.get(`/searchoysters/?ordering=-points`).then((res) => {
-        console.log(res.data, 'api')
         return res.data;
     })
         .catch((err) => {
@@ -116,6 +114,19 @@ export const getOysterByUsername = (username) => {
         .catch((err) => {
             throw err;
         });
+};
+
+//putoyster
+export const putOyster = (id, putPoints) => {
+    console.log(id, putPoints)
+    return myAPI.put(`/oysters/${id}`, { points: putPoints })
+      .then((res) => {
+        console.log(res)
+        return res.data
+    })
+    .catch((err) => {
+        throw err;
+    })
 };
 
 //postOyster
