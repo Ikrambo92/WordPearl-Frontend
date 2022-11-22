@@ -12,7 +12,6 @@ const poemAPI = axios.create({
 export const getPoem = () => {
     return poemAPI.get("/random")
         .then((res) => {
-            console.log(res.data)
             return res.data
         })
         .catch((err) => {
@@ -65,8 +64,9 @@ export const patchPearlById = (pearl_id, votes) => {
 };
 
 //postPearlById
-export const postPearl = (body) => {
-    return myAPI.post(`/pearls/`, { title: "examplePearl", username: "Dave", body: body, votes: 0, created_at: new Date() })
+export const postPearl = (pearl) => {
+    console.log(pearl)
+    return myAPI.post(`/pearls/`, pearl)
         .then((res) => {
             return res.data.pearl;
         })
@@ -120,7 +120,6 @@ export const getOysterByUsername = (username) => {
 
 //postOyster
 export const postOyster = (oyster) => {
-    console.log(oyster)
     return myAPI.post(`/oysters/`, oyster)
         .then((res) => {
             console.log(res.data)

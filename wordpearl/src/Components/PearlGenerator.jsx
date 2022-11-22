@@ -5,50 +5,64 @@ import pearlCheck from "./PearlCheck";
 import { SuccessfulPearl } from "./SuccessfulPearl";
 import myGif from "./WPword_earl.gif";
 import myGif2 from "./WPpearlie.gif";
-import { getPoem } from "../Utils/apis";
+import { useContext } from 'react';
+import { UserContext } from '../Context/UserContext';
+import { getPoem, postOyster, postPearl } from "../Utils/apis";
 
 
 const PearlGenerator = () => {
+  const { user } = useContext(UserContext)
   const [message, setMessage] = useState("");
+  const [title, setTitle] = useState("")
   const [pearl, setPearl] = useState(false);
   const [poem, setPoem] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (event) => {
     const result = event.target.value.replace(/[^a-z\s]/gi, "");
-    // if (pearlCheck(message).length === 3)
     setMessage(result);
   };
 
+  const handleChangeTitle = (event) => {
+    setTitle(event.target.value)
+  }
+
   const handleSubmit = (event) => {
+    if(user.id === undefined){
+      alert('Please sign in to post') 
+      return;
+    }
+    if(title === '' || message === ''){
+      alert('Please complete both boxes')
+    }
     event.preventDefault();
-    if (pearlCheck(message).length === 0) {
-      setPearl(true);
+    if(pearlCheck(message).length === 0) {
+      postPearl({
+      "title": title,
+      "body": message,
+      "username": user.id,
+      "created_at": "2022-11-18",
+      "votes": 0
+    }).then((res) => {
+
+    })
+    setPearl(true);
     }
   };
 
-  const handleClickPoem = (event) => {
-    setIsLoading(true)
-    getPoem().then((res) => {
-      console.log(res)
-      setPoem(res);
-      setIsLoading(false);
-    });
-  }
+  // const handleClickPoem = () => {
+  //   getPoem().then((res) => {
+  //     console.log(res)
+  //     setPoem(res[0])
+  //     console.log(poem)
+  //     console.log(poem.length)
+  //   });
+  // }
 
-
-  if (isLoading) return <h2>Loading...</h2>
   if (pearl === false) {
     return (
       <div className="pearlGenerator">
         <h2 className="pearlGenerator">Create a Pearl !</h2>
-        { poem.length > 0 ? <div >
-          <ul>
-          <li>{poem.title}</li>
-          <li>{poem.author}</li>
-          <li>{poem.lines.slice(0, 10)}</li>
-        </ul>
-        </div> : <button id="randomPoem" onClick={handleClickPoem}>Inspire Me</button>}
         <img
           src={myGif}
           alt={"my-gif"}
@@ -60,19 +74,11 @@ const PearlGenerator = () => {
           style={{ width: "200px", height: "200px" }}
         />
         <form>
-          <textarea
-            type="text"
-            name="message"
-            id="message"
-            cols="50"
-            rows="12"
-            value={message}
-            onChange={handleChange}
-          ></textarea>
+          <textarea type="text" name="title" id="title" cols="50" rows="1" onChange={handleChangeTitle} placeholder="title"></textarea>
           <br />
-          <button id="pgsubmit" onClick={handleSubmit}>
-            Submit
-          </button>
+          <textarea type="text" name="message" id="message" cols="50" rows="12" value={message} onChange={handleChange} placeholder="pearl"></textarea>
+          <br />
+          <button id="pgsubmit" onClick={handleSubmit}>Submit</button>
           <p id="oddLetters">
             {" "}
             These letters need a counterpart to make them an even pair:{" "}
