@@ -9,6 +9,7 @@
     justify-content: center;
     align-items: center;
     min-height: 50vh;
+    margin-top: 10%;
 }
 
 .card {
@@ -23,6 +24,12 @@
 .card:hover {
     height: 450px;
 }
+
+.card:hover:nth-child(1) {
+    margin-top: 15%;
+}
+
+
 
 .card .lines {
     position: absolute;

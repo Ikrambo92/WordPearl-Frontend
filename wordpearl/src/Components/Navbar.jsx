@@ -6,6 +6,9 @@ const Navbar = () => {
     return (
         <div className="nav-bar">
             <nav>
+                <div className="main-heading">
+                    <h1>Word<span>Pearl '</span><span className='bubble'></span></h1>
+                </div>
                 <ul className='nav-list'>
                     <Link to={'/'}>
                         <li>Home</li>
@@ -17,6 +20,14 @@ const Navbar = () => {
                         <li>Generate Pearls</li>
                     </Link>
                     <li>Chest of Pearls</li>
+                    <li onClick={() => {
+                        window.scroll({
+                            top: document.body.offsetHeight,
+                            left: 0,
+                            behaviour: 'smooth'
+                        })
+                    }}>How To Play?</li>
+                    <hr />
                 </ul>
             </nav>
         </div>

@@ -5,7 +5,7 @@
 }
 
 footer {
-    background: #111;
+    background: rgb(0, 0, 0);
     height: auto;
     width: 100vw;
     font-family: Open Sans;
@@ -25,7 +25,7 @@ footer {
     font-size: 2.3rem;
     font-weight: 700;
     line-height: 3rem;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
 .footer-content p {
@@ -42,7 +42,7 @@ footer {
     align-items: center;
     justify-content: space-between;
     width: 100vw;
-    padding: 20px 20px 20px 20px;
+    padding: 20px 200px;
     font-size: 1.8rem;
     background: linear-gradient(180deg, magenta, cyan);
     background-clip: text;
@@ -60,4 +60,3 @@ footer {
     -webkit-text-fill-color: transparent;
     font-style: italic;
 }
-
