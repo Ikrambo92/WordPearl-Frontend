@@ -9,6 +9,8 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    flex-flow: column wrap;
+    margin-top: 20%;
 }
 
 .card1 {
@@ -18,11 +20,7 @@
     border-radius: 20px;
     box-shadow: 0 35px 80px rgba(0,0,0,0.15);
     transition: 0.5s;
-}
-
-.card1:hover {
-    height: 450px;
-    transform: translate(-80%, 50%);
+    margin: 10%;
 }
 
 .card1 .lines1 {
@@ -74,11 +72,6 @@
     transition: 0.5s;
     z-index: 10;
     overflow: hidden;
-}
-
-.card1:hover .imgBx {
-    width: 250px;
-    height: 250px;
 }
 
 
@@ -167,23 +160,14 @@
     -webkit-text-fill-color: transparent;
 }
 
-.card1:hover .content1 .details1 {
-    transform: translateY(-50px);
-    transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
-}
+.content1 .details1 ul li {
+    list-style: none;
+    padding: 5%;
+} 
 
-
-.card1:hover .content1 .data1 p {
-    transform: translateY(-50px);
-    font-style: italic;
-    font-size: 1.14rem;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.card1:hover .content1 .data1 p:nth-child(1) {
-    font-weight: 800;
+.content1 .details1 .user-name {
+    font-size: 1.7rem;
+    font-weight: 700;
     text-decoration: underline;
-    font-style: normal;
-    font-size: 1.3rem;
+    text-overflow: clip;
 }

@@ -2,44 +2,53 @@ import React from 'react';
 import { getOystersByPoints } from '../Utils/apis';
 import { useEffect, useState } from 'react';
 import './LeaderBoard.css'
+import PearlCard from "./PearlCard";
+
 
 const LeaderBoard = () => {
 
-    const [isLoading, setIsLoading] =useState(true)
+    const [isLoading, setIsLoading] = useState(true)
     const [oysters, setOysters] = useState([])
 
-    useEffect(()=>{
+    useEffect(() => {
         setIsLoading(true)
-        getOystersByPoints().then((oysters)=>{
+        getOystersByPoints().then((oysters) => {
             setIsLoading(false)
             setOysters(oysters)
         })
-    },[] ) 
+    }, [])
 
 
-    
-          if (isLoading) return <h2>Loading...</h2>
+
+    if (isLoading) return <h2>Loading...</h2>
 
 
-    return <div>
-        <div className="board" id='profile'>
-        <h2  className='leaderboard' >LEADER BOARD</h2>
-        <ul >
-        {oysters.map((oysters) => {
-            return (
-                <div key={oysters.id}>
-                    <li>Oyster ID : {oysters.id}</li>
-                    <li>Username: {oysters.username}</li>
-                    <li><img src={oysters.avatar_url} alt="avatar" style={{width: "200px", height:"200px"}} />
-                        </li>
-                        <li>  <span>Score: {oysters.points}</span> </li>
-                </div>
-            )
-        })}
-        </ul>
+    return (
+        <div className="card-container1">
+            {oysters.map((oyster) => {
+                return (
+                    <div className='card1'>
+                        <div className="lines1"></div>
+                        <div className="imgBx">
+                            <li><img src={oyster.avatar_url} alt="avatar" />
+                            </li>
+                        </div>
+                        <div className='content1'>
+                            <div className='details1'>
+                                <ul>
+                                    <li key={oyster.id} />
+                                    <li className='user-name'>{oyster.username}</li>
+                                    <li><span>Score: {oyster.points}</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                )
+            })}
         </div>
-        </div>
-    
+    )
+
 
 
 }

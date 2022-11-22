@@ -10,7 +10,7 @@ import PearlCard from "./PearlCard";
 const SingleOyster = () => {
 
     const [pearlsList, setPearlsList] = useState([]);
-    
+
     const { user } = useContext(UserContext);
 
     useEffect(() => {
@@ -32,19 +32,14 @@ const SingleOyster = () => {
                             <h2> Author: {user.username}</h2>
                             <p> points: <span>{user.points}</span></p>
 
-                                {pearlsList.map((pearl) => {
-                    return <PearlCard key={pearl.id} pearl={pearl} />;
-                })}
-                        </div>
-                        
-                        <div className="data1">
-                            <p>Most Voted:</p>
-                            <p>"Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero, architecto iure? Aliquam placeat ex"</p>
                         </div>
                     </div>
                 </div>
+                {pearlsList.map((pearl) => {
+                    return <PearlCard key={pearl.pearl_id} pearl={pearl} />
+                })}
             </div>
-         
+
         </article>
     )
 }
