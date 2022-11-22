@@ -1,15 +1,17 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import { deleteCommentById, patchCommentById } from "../Utils/apis";
+import { useContext } from 'react';
+import { UserContext } from '../Context/UserContext';
 
 const CommentById = ({ comment }) => {
   
+    const { user } = useContext(UserContext)
     const { id, username, body, votes, created_at } = comment
     const [voteChange, setVoteChange] = useState(0);
     const [isvoteUp, setIsVoteUp] = useState(false)
     const [isvoteDown, setIsVoteDown] = useState(false)
     const [deleting, setDeleting] = useState(false)
-    const user = {author: "Adawg"}
     let putVotes = 0
 
     useEffect(() => {
@@ -58,7 +60,7 @@ const CommentById = ({ comment }) => {
       <button onClick={() => handleClickDown(id, votes)} disabled={isvoteDown}>👎</button>
       <p>Votes: {votes + voteChange} </p>
       <p>Date: {created_at}</p>
-      {user.author !== username ? <></> : <button id="deleteButton" value={id} onClick={handleDelete}>Delete 🗑️</button>}
+      {user.username !== username ? <></> : <button id="deleteButton" value={id} onClick={handleDelete}>Delete 🗑️</button>}
     <br />
     </dl>
   </section>

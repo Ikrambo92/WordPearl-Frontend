@@ -11,13 +11,12 @@ const Signup = () => {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
-    const [newOyster, setNewOyster] = useState({})
     const [avaUrl, setAvaUrl] = useState('')
     const [isSignUp, setSignUp] = useState(false)
 
     const handleChangeUsername = (event) => {
         setUsername(event.target.value)
-    }
+        }
 
     const handleChangePassword = (event) => {
        setPassword(event.target.value)
@@ -34,33 +33,29 @@ const Signup = () => {
     const handleClick = () => {
         if(password !== confirmPassword){
             alert('Your passwords do not match')
-            return
+            return;
         }
         else if(username === '' || password === '' || avaUrl === ''){
             alert('Both username and password and Avatar URL must be filled in')
-            return
-        }
-        else {
+            return;
+        } 
         getOysterByUsername(username).then((response) => {
-            if(response.length === 0){
-            setSignUp(true)
-                setNewOyster({
-                    username: username,
-                    password: password,
-                    avatar_url: avaUrl,
-                    points: 0
-                   })
-            postOyster(newOyster).then((response) => {
-                setUser(response)
-                setSignUp(false)
-                   })
-                }
-                else {
-                    alert('This username is already taken')
-                    return
-                }
+            if(response.length !== 0){
+                alert('This username is already taken')
+                return;
+            } else {
+        setSignUp(true)
+        postOyster({
+            'username': username,
+            'password': password,
+            'avatar_url': avaUrl,
+            'points': 0
+        }).then((response) => {
+            setUser(response)
+            setSignUp(false)
             })
-        }
+          }
+        })
     }
    
     if(isSignUp) return <h2>Signing up!...</h2>
@@ -85,3 +80,5 @@ const Signup = () => {
 }
 
 export default Signup
+
+// else {
