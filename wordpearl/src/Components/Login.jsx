@@ -42,16 +42,16 @@ const Login = () => {
     return (
         <div className="login-container">
             <div className='creds'>
-                <h2>Login</h2>
+                <h2 id='login' >Login</h2>
                 <h3>Username</h3>
-                <form action="">
+                <form id='form'>
                 <input type="text" name="username-input" id="uname" placeholder='John123' onChange={handleChangeUsername} />
                 <h3>Password</h3>
                 <input type="text" name="password-input" id="pname" placeholder='Password123' onChange={handleChangePassword}/>
                 <div className="button">
-                    <button onClick={handleClick} >Login</button>
+                    <button className='button' onClick={handleClick} >Login</button>
                 </div>
-                <Link to='/signup'>Don't have an account? sign-up...</Link>
+                <Link to='/signup' >Don't have an account? sign-up...</Link>
                 </form>
             </div>
         </div>
