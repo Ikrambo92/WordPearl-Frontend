@@ -171,3 +171,23 @@
     text-decoration: underline;
     text-overflow: clip;
 }
+
+.logout-message {
+    height: 50vh;
+    margin-top: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row wrap;
+}
+
+.logout-message h2 {
+    font-size: 2.5rem;
+    text-transform: capitalize;
+    background: linear-gradient(180deg, magenta, cyan);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-decoration: underline;
+    line-height: 3rem;
+}

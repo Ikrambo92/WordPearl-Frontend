@@ -1,5 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-
-#banner {
+.congratsPage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column wrap;
+    height: 50vh;
     text-align: center;
+    padding-bottom: 10px;
+}
+
+.congratsPage h1 {
+    font-size: 2rem;
+    text-decoration: underline;
+    padding-bottom: 15px;
+    background: linear-gradient(180deg, magenta, cyan);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.congratsPage padding:nth-child(2) {
+    margin-top: 10px;
+    letter-spacing: 3px;
+    text-decoration: solid;
+    font-weight: 700;
 }
