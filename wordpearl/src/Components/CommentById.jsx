@@ -27,8 +27,7 @@ const CommentById = ({ comment }) => {
         }
       }, [voteChange])
 
-    const handleClickUp = (id, votes) => {
-        console.log(id)
+    const handleClickUp = () => {
         putVotes = votes + 1
         setVoteChange((voteChange) => voteChange + 1);
       patchCommentById(id, putVotes);

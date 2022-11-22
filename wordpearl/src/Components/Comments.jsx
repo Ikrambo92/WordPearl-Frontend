@@ -18,7 +18,6 @@ const CommentsByPearl = () => {
         getCommentByPearlId(id).then((response) => {
           setIsComments(response)
         }).catch((err) => {
-            console.log(err)
         })
     }, [id, isComments])
 
