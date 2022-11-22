@@ -26,8 +26,11 @@ const Navbar = () => {
                     <Link to={'/PearlGenerator'}>
                         <li>Generate Pearls</li>
                     </Link>
+
+                    <Link to={'/Pearls'}>
+                        <li>Chest of Pearls</li>
+                    </Link>
                     
-                    <li>Chest of Pearls</li>
                     <li onClick={() => {
                         window.scroll({
                             top: document.body.offsetHeight,
