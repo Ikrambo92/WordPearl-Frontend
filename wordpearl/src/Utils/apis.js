@@ -12,6 +12,7 @@ const poemAPI = axios.create({
 export const getPoem = () => {
     return poemAPI.get("/random")
         .then((res) => {
+            console.log(res.data)
             return res.data
         })
         .catch((err) => {

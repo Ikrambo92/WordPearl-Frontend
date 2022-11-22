@@ -1,6 +1,6 @@
 import React from "react";
 import "./PearlGenerator.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import pearlCheck from "./PearlCheck";
 import { SuccessfulPearl } from "./SuccessfulPearl";
 import myGif from "./WPword_earl.gif";
@@ -12,7 +12,7 @@ const PearlGenerator = () => {
   const [message, setMessage] = useState("");
   const [pearl, setPearl] = useState(false);
   const [poem, setPoem] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (event) => {
     const result = event.target.value.replace(/[^a-z\s]/gi, "");
@@ -27,37 +27,28 @@ const PearlGenerator = () => {
     }
   };
 
-  
-  useEffect(() => {
-      setIsLoading(true);
-      getPoem().then((poem) => {
-          setIsLoading(false);
-          setPoem(poem);
-          console.log(poem)
-        });
-    }, []);
-    
-    if (poem.length > 0) {
-      return (
-          <div >
-          <ul>
-          <li>{poem.title}</li>
-          <li>{poem.author}</li>
-          <li>{poem.lines}</li>
-        </ul>
-        </div>
-      )
-    }
+  const handleClickPoem = (event) => {
+    setIsLoading(true)
+    getPoem().then((res) => {
+      console.log(res)
+      setPoem(res);
+      setIsLoading(false);
+    });
+  }
 
 
   if (isLoading) return <h2>Loading...</h2>
-  
-
-
   if (pearl === false) {
     return (
       <div className="pearlGenerator">
         <h2 className="pearlGenerator">Create a Pearl !</h2>
+        { poem.length > 0 ? <div >
+          <ul>
+          <li>{poem.title}</li>
+          <li>{poem.author}</li>
+          <li>{poem.lines.slice(0, 10)}</li>
+        </ul>
+        </div> : <button id="randomPoem" onClick={handleClickPoem}>Inspire Me</button>}
         <img
           src={myGif}
           alt={"my-gif"}
@@ -95,10 +86,6 @@ const PearlGenerator = () => {
           text field. You will have a Pearl when there are no Odd Letters
           displayed. Good Luck!
         </p>
-        <button id="randomPoem" onClick={setPoem(poem)}>
-          Inspire Me
-        </button>
-        
       </div>
     );
   } else {
