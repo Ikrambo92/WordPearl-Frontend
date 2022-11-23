@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { getPearlsByUsername } from '../Utils/apis';
+import { getOysterByUsername, getPearlsByUsername } from '../Utils/apis';
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import './SingleOyster.css'
@@ -11,11 +11,15 @@ import PearlCard from "./PearlCard";
 const SingleOyster = () => {
 
     const [pearlsList, setPearlsList] = useState([]);
+    const [oyster, setOyster] = useState({})
     const { user } = useContext(UserContext);
 
     useEffect(() => {
         getPearlsByUsername(user.username).then((userPearls) => {
-            setPearlsList(userPearls)        
+            setPearlsList(userPearls)    
+            getOysterByUsername(user.username).then((res) => {
+                setOyster(res[0])
+            }) 
         })
     }, [user.username])
 
@@ -31,12 +35,12 @@ const SingleOyster = () => {
                     <div className="card1">
                         <div className="lines1"></div>
                         <div className="imgBx">
-                            <img src={user.avatar_url} alt={user.username}></img>
+                            <img src={oyster.avatar_url} alt={oyster.username}></img>
                         </div>
                         <div className="content1">
                             <div className="details1">
-                                <h2> Author: {user.username}</h2>
-                                <p> points: <span>{user.points}</span></p>
+                                <h2> Author: {oyster.username}</h2>
+                                <p> points: <span>{oyster.points}</span></p>
 
                             </div>
                         </div>
