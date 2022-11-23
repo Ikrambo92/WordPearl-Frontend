@@ -67,18 +67,20 @@ const Signup = () => {
         return (
             <div className="login-container">
                 <div className='creds'>
-                    <h2>Sign Up</h2>
-                    <h3>New Username</h3>
-                    <input type="text" name="username-input" id="uname" placeholder='Jane123' onChange={handleChangeUsername} />
-                    <h3>Password</h3>
-                    <input type="password" name="password-input" id="pname" placeholder='Password123' onChange={handleChangePassword} /><h3>Confirm Password</h3>
-                    <input type="password" name="password-input" id="cname" placeholder='Password123' onChange={handChangeConfirmPassword} />
-                    <h3>Avatar URL</h3>
-                    <input type="text" name="Avatar-URL-input" id="avname" placeholder='URL' onChange={handleChangeUrl} />
-                    <a href='/Login'>Already have an account? Log in</a>
-                    <div className="button">
-                        <button onClick={handleClick} >Signup</button>
-                    </div>
+                    <form id='form'>
+                        <h2>Sign Up</h2>
+                        <h3>New Username</h3>
+                        <input type="text" name="username-input" id="uname" placeholder='Jane123' onChange={handleChangeUsername} />
+                        <h3>Password</h3>
+                        <input type="password" name="password-input" id="pname" placeholder='Password123' onChange={handleChangePassword} /><h3>Confirm Password</h3>
+                        <input type="password" name="password-input" id="cname" placeholder='Password123' onChange={handChangeConfirmPassword} />
+                        <h3>Avatar URL</h3>
+                        <input type="text" name="Avatar-URL-input" id="avname" placeholder='URL' onChange={handleChangeUrl} />
+                        <a href='/Login'>Already have an account? Log in</a>
+                        <div className="button">
+                            <button onClick={handleClick} >Signup</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         )
