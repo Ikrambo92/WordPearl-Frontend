@@ -54,7 +54,7 @@ export const getPearlById = (pearl_id) => {
 
 //patchPearlById
 export const patchPearlById = (pearl_id, votes) => {
-    return myAPI.put(`/pearls/${pearl_id}`, { 'votes': (votes + 1) })
+    return myAPI.put(`/pearls/${pearl_id}`, { 'votes': (votes) })
         .then((res) => {
             return res.data.pearl;
         })
@@ -118,10 +118,8 @@ export const getOysterByUsername = (username) => {
 
 //putoyster
 export const putOyster = (id, putPoints) => {
-    console.log(id, putPoints)
     return myAPI.put(`/oysters/${id}`, { points: putPoints })
       .then((res) => {
-        console.log(res)
         return res.data
     })
     .catch((err) => {
@@ -133,7 +131,6 @@ export const putOyster = (id, putPoints) => {
 export const postOyster = (oyster) => {
     return myAPI.post(`/oysters/`, oyster)
         .then((res) => {
-            console.log(res.data)
             return res.data;
         })
         .catch((err) => {
@@ -176,7 +173,7 @@ export const getCommentById = (comment_id) => {
 
 //getCommentByPearlId
 export const getCommentByPearlId = (id) => {
-    return myAPI.get(`/searchcomments/?format=json&search=${id}&ordering=-votes`)
+    return myAPI.get(`/searchcomments/?search=${id}&ordering=created_at`)
         .then((res) => {
             return res.data;
         }).catch((err) => {

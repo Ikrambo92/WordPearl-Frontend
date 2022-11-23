@@ -2,72 +2,73 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getOysterByUsername, getPearlById, patchPearlById, putOyster } from '../Utils/apis';
 import CommentsById from './Comments';
+import "./SinglePearl.css"
 
 const SinglePearl = () => {
 
-    const [pearl, setPearl] = useState([]);
-    const { title, votes, body, username, created_at } = pearl;
-    const { id } = useParams();
-    const [isLoading, setIsLoading] = useState(true);
-    const [voteChange, setVoteChange] = useState(0);
-    const [isvoteUp, setIsVoteUp] = useState(false)
-    const [isvoteDown, setIsVoteDown] = useState(false)
-    let putVotes = 0
+  const { id } = useParams();
+  const [isLoading, setIsLoading] = useState(true);
+  const [ pearl, setPearl ] = useState({})
+  const [ oyster, setOyster ] = useState({})
+  const [ voteCount, setVoteCount ] = useState(0)
+  const [ voteChange, setVoteChange ] = useState(0)
+  const [isvoteUp, setIsVoteUp] = useState(false)
+  const [isvoteDown, setIsVoteDown] = useState(false)
 
-    useEffect(() => {
-        getPearlById(id).then((pearl) => {
-            setPearl(pearl);
-            setIsLoading(false);
-    })
-      .catch((err) => {
-        setIsLoading(false);
-      });
-    }, [id, votes]);
 
-    useEffect(() => {
-      if (voteChange > 0){
-        setIsVoteUp(true)
-      }
-      if (voteChange < 0){
-        setIsVoteDown(true)
-      }
-      if (voteChange === 0){
-        setIsVoteUp(false)
-        setIsVoteDown(false)
-      }
-    }, [voteChange])
-
-    const handleClickUp = () => {
-      putVotes = votes + 1
-      setVoteChange((voteChange) => voteChange + 1);
-      getOysterByUsername(pearl.username).then((res) => {
-        putOyster(res.id, (res.points + 1))
+  useEffect(() => {
+    getPearlById(id).then((res) => {
+      setPearl(res)
+      setVoteCount(res.votes)
+      getOysterByUsername(res.username).then((res) => {
+        setOyster(res[0])
+        setIsLoading(false)       
       })
-    patchPearlById(id, putVotes);
+    })
+  },[id, voteCount])
+
+  useEffect(() => {
+    if (voteChange > 0){
+      setIsVoteUp(true)
+    }
+    if (voteChange < 0){
+      setIsVoteDown(true)
+    }
+    if (voteChange === 0){
+      setIsVoteUp(false)
+      setIsVoteDown(false)
+    }
+  }, [voteChange])
+
+
+  const handleClickUp = () => {
+    setVoteCount((CurrentVoteCount) => CurrentVoteCount + 1)
+    setVoteChange((currentChange) => currentChange + 1)
+    patchPearlById(pearl.id, voteCount + 1)
+    putOyster(oyster.id, oyster.points + 1)
   }
 
-    const handleClickDown = () => {
-      putVotes = votes - 1
-      setVoteChange((voteChange) => voteChange - 1);
-      getOysterByUsername(pearl.username).then((res) => {
-        putOyster(res.id, (res.points - 1))
-      })
-      patchPearlById(id, putVotes)
-    }
+  const handleClickDown = () => {
+    setVoteCount((CurrentVoteCount) => CurrentVoteCount - 1)
+    setVoteChange((currentChange) => currentChange - 1)
+    patchPearlById(pearl.id, voteCount - 1)
+    putOyster(oyster.id, oyster.points - 1)
+  }
 
-    if (isLoading) return (<h2>Loading pearl...</h2>);
+  if (isLoading) return (<h2>Loading pearl...</h2>)
+
 
       return (
       <main>
-        <section>
-            <h2>{title}</h2>
-                  <h3>Pearl: {body}</h3>
-                  <h3>Author: {username}</h3>
-                  <h4>Date: {created_at}</h4>
+        <section id="singlepearl">
+            <h2>{pearl.title}</h2>
+                  <h3>Pearl: {pearl.body}</h3>
+                  <h3>Author: {pearl.username}</h3>
+                  <h4>Date: {pearl.created_at}</h4>
           <div>
             <button onClick={() => handleClickUp()} disabled={isvoteUp}>👍</button>
             <button onClick={() => handleClickDown()} disabled={isvoteDown}>👎</button>
-            <h5>Votes: {votes + voteChange} </h5>
+            <h5>Votes: {pearl.votes} </h5>
         </div>
         <CommentsById />
       </section>

@@ -14,11 +14,16 @@ const CommentsByPearl = () => {
     const [newComment, setNewComment] = useState('')
     const [posting, setPosting] = useState(false)
 
+    // const date =  new Date()
+    // const day = date.getDate()
+    // const month = date.getMonth()
+    // const year = date.getFullYear()
+    // const today =`${year}-${month}-${day}`
+
     useEffect(() => {
         getCommentByPearlId(id).then((response) => {
           setIsComments(response)
         }).catch((err) => {
-            console.log(err)
         })
     }, [id, isComments])
 
@@ -40,7 +45,7 @@ const CommentsByPearl = () => {
         "body": newComment,
         "username": user.id,
         "pearl_id": id,
-        "created_at": "2022-11-18",
+        "created_at": "2022-11-24",
         "votes": 0
       }).then((response) => {
         setPosting(false)
