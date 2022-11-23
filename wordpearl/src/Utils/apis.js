@@ -1,13 +1,10 @@
 import axios from "axios";
-
 const myAPI = axios.create({
     baseURL: "https://wordpearl-be.herokuapp.com",
 });
-
 const poemAPI = axios.create({
     baseURL: "https://poetrydb.org"
 })
-
 //getpoem
 export const getPoem = () => {
     return poemAPI.get("/random")
@@ -18,7 +15,6 @@ export const getPoem = () => {
             throw err;
         })
 }
-
 //getPearls
 export const getPearls = () => {
     return myAPI.get("/pearls/")
@@ -29,8 +25,7 @@ export const getPearls = () => {
             throw err;
         });
 }
-
-//getPearlsByUsername 
+//getPearlsByUsername
 export const getPearlsByUsername = (username) => {
     return myAPI.get(`/searchpearls/?search=${username}`)
         .then((res) => {
@@ -40,7 +35,6 @@ export const getPearlsByUsername = (username) => {
             throw err;
         });
 }
-
 //getPearlById
 export const getPearlById = (pearl_id) => {
     return myAPI.get(`/pearls/${pearl_id}`)
@@ -51,7 +45,6 @@ export const getPearlById = (pearl_id) => {
             throw err;
         });
 };
-
 //patchPearlById
 export const patchPearlById = (pearl_id, votes) => {
     return myAPI.put(`/pearls/${pearl_id}`, { 'votes': (votes) })
@@ -62,7 +55,6 @@ export const patchPearlById = (pearl_id, votes) => {
             throw err;
         });
 };
-
 //postPearlById
 export const postPearl = (pearl) => {
     return myAPI.post(`/pearls/`, pearl)
@@ -73,7 +65,15 @@ export const postPearl = (pearl) => {
             throw err;
         });
 };
-
+//deleteCommentById
+export const deletePearlById = (id) => {
+    return myAPI.delete(`/pearls/${id}`)
+        .then((res) => {
+        })
+        .catch((err) => {
+            throw err;
+        })
+}
 //getOysters
 export const getOysters = () => {
     return myAPI.get("/oysters/")
@@ -84,7 +84,6 @@ export const getOysters = () => {
             throw err;
         });
 }
-
 //getOysterById
 export const getOysterById = (oyster_id) => {
     return myAPI.get(`/oysters/${oyster_id}`)
@@ -104,7 +103,6 @@ export const getOystersByPoints = () => {
             throw err;
         })
 }
-
 //getOyserByUsername
 export const getOysterByUsername = (username) => {
     return myAPI.get(`/searchoysters/?search=${username}`)
@@ -115,7 +113,6 @@ export const getOysterByUsername = (username) => {
             throw err;
         });
 };
-
 //putoyster
 export const putOyster = (id, putPoints) => {
     return myAPI.put(`/oysters/${id}`, { points: putPoints })
@@ -126,7 +123,6 @@ export const putOyster = (id, putPoints) => {
         throw err;
     })
 };
-
 //postOyster
 export const postOyster = (oyster) => {
     return myAPI.post(`/oysters/`, oyster)
@@ -137,7 +133,6 @@ export const postOyster = (oyster) => {
             throw err;
         });
 };
-
 //deleteOysterById
 export const deleteOysterById = (oyster_id) => {
     return myAPI.delete(`/oysters/${oyster_id}`)
@@ -148,7 +143,6 @@ export const deleteOysterById = (oyster_id) => {
             throw err;
         });
 };
-
 //getComments
 export const getComments = () => {
     return myAPI.get("/comments/")
@@ -159,7 +153,6 @@ export const getComments = () => {
             throw err;
         });
 }
-
 //getCommentById
 export const getCommentById = (comment_id) => {
     return myAPI.get(`/comments/${comment_id}`)
@@ -170,7 +163,6 @@ export const getCommentById = (comment_id) => {
             throw err;
         });
 };
-
 //getCommentByPearlId
 export const getCommentByPearlId = (id) => {
     return myAPI.get(`/searchcomments/?search=${id}&ordering=created_at`)
@@ -180,7 +172,6 @@ export const getCommentByPearlId = (id) => {
             throw err;
         })
 }
-
 //postComment
 export const postComment = (comment) => {
     return myAPI.post("/comments/", comment)
@@ -191,7 +182,6 @@ export const postComment = (comment) => {
             throw err;
         });
 }
-
 //patchCommentById
 export const patchCommentById = (comment_id, putVotes) => {
     return myAPI.put(`/comments/${comment_id}`, { votes: putVotes })
@@ -202,12 +192,10 @@ export const patchCommentById = (comment_id, putVotes) => {
             throw err;
         });
 };
-
 //deleteCommentById
 export const deleteCommentById = (id) => {
     return myAPI.delete(`/comments/${id}`)
         .then((res) => {
-
         })
         .catch((err) => {
             throw err;
