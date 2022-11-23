@@ -1,12 +1,14 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 import './SuccessfulPearl.css'
 
 
 
 export const SuccessfulPearl = (message) => {
+  const navigate = useNavigate()
 
-  function refreshPage() {
-    window.location.reload(false);
+  const tryAgain = () => {
+    navigate('/PearlGenerator')
   }
 
   return (
@@ -14,7 +16,7 @@ export const SuccessfulPearl = (message) => {
       <h1 id="banner">Congratulations!!!</h1>
       <p>Successful Pearl !</p>
       <p>+10 points</p>
-      <button onClick={refreshPage}>Try again !</button>
+      <button onClick={tryAgain}>Try again !</button>
     </div>
   )
 }

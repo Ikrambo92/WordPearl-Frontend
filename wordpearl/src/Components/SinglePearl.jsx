@@ -6,6 +6,8 @@ import { getOysterByUsername, getPearlById, patchPearlById, putOyster, deletePea
 import CommentsById from './Comments';
 import "./SinglePearl.css"
 import { useNavigate } from 'react-router-dom';
+
+
 const SinglePearl = () => {
   const navigate = useNavigate()
   const { user } = useContext(UserContext)
@@ -18,6 +20,7 @@ const SinglePearl = () => {
   const [isvoteUp, setIsVoteUp] = useState(false)
   const [isvoteDown, setIsVoteDown] = useState(false)
   const [deleting, setDeleting] = useState(false)
+
   useEffect(() => {
     getPearlById(id).then((res) => {
       setPearl(res)
@@ -28,6 +31,8 @@ const SinglePearl = () => {
       })
     })
   },[id, voteCount])
+
+
   useEffect(() => {
     if (voteChange > 0){
       setIsVoteUp(true)
@@ -40,25 +45,31 @@ const SinglePearl = () => {
       setIsVoteDown(false)
     }
   }, [voteChange])
+
   const handleClickUp = () => {
     setVoteCount((CurrentVoteCount) => CurrentVoteCount + 1)
     setVoteChange((currentChange) => currentChange + 1)
     patchPearlById(pearl.id, voteCount + 1)
     putOyster(oyster.id, oyster.points + 1)
   }
+
   const handleClickDown = () => {
     setVoteCount((CurrentVoteCount) => CurrentVoteCount - 1)
     setVoteChange((currentChange) => currentChange - 1)
     patchPearlById(pearl.id, voteCount - 1)
     putOyster(oyster.id, oyster.points - 1)
   }
+
   const handleDelete = (event) => {
     setDeleting(true)
     deletePearlById(event.target.value).then((response) => {
       setDeleting(false)
+      putOyster(oyster.id, oyster.points - 10)
       navigate('/Oyster')
     })
   }
+
+
   if (isLoading) return (<h2>Loading pearl...</h2>)
       return (
       <main>
