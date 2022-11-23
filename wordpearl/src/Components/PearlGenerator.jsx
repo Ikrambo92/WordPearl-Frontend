@@ -8,9 +8,11 @@ import myGif2 from "./WPpearlie.gif";
 import { useContext } from 'react';
 import { UserContext } from '../Context/UserContext';
 import { getOysterById, getPoem, postPearl, putOyster } from "../Utils/apis";
+import { useNavigate } from 'react-router-dom';
 
 
 const PearlGenerator = () => {
+  const navigate = useNavigate()
   const { user } = useContext(UserContext)
   const [message, setMessage] = useState("");
   const [title, setTitle] = useState("")
@@ -47,6 +49,7 @@ const PearlGenerator = () => {
       getOysterById(user.id).then((res) => {
         putOyster(user.id, (res.points + 10))
       }).then(() => {
+        navigate('/SuccessfulPearl')
       })
       setPearl(true);
     }
@@ -83,7 +86,9 @@ const PearlGenerator = () => {
           <button id="pgsubmit" onClick={handleSubmit}>Submit</button>
           <p id="oddLetters">
             {" "}
-            These letters need a counterpart to make them an even pair: <span>{" "}{pearlCheck(message)}{" "}</span>
+            These letters need a counterpart to make them an even pair: 
+            <br></br>
+            <span>{" "}{pearlCheck(message)}{" "}</span>
           </p>
         </form>
         <p className="instruct-msg">

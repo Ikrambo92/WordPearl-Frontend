@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { getOysterByUsername, getPearlById, patchPearlById, putOyster } from '../Utils/apis';
+import { useContext } from 'react';
+import { UserContext } from '../Context/UserContext';
+import { getOysterByUsername, getPearlById, patchPearlById, putOyster, deletePearlById } from '../Utils/apis';
 import CommentsById from './Comments';
-
-const SinglePearl = () => {
+import "./SinglePearl.css"
+import { useNavigate } from 'react-router-dom';
 
   const [pearl, setPearl] = useState([]);
   const { title, votes, body, username, created_at } = pearl;
@@ -93,6 +95,4 @@ const SinglePearl = () => {
     </div>
   );
 }
-
-
 export default SinglePearl;
