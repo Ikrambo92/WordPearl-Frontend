@@ -11,14 +11,14 @@ import PearlCard from "./PearlCard";
 const SingleOyster = () => {
 
     const [pearlsList, setPearlsList] = useState([]);
-
     const { user } = useContext(UserContext);
 
     useEffect(() => {
         getPearlsByUsername(user.username).then((userPearls) => {
-            setPearlsList(userPearls)
+            setPearlsList(userPearls)        
         })
     }, [user.username])
+
 
     if (user.id === undefined) {
         return <div className="logout-message">
