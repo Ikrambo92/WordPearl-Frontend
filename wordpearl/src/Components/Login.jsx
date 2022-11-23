@@ -52,7 +52,7 @@ const Login = () => {
                     <form id='form'>
                         <input type="text" name="username-input" id="uname" placeholder='John123' onChange={handleChangeUsername} />
                         <h3>Password</h3>
-                        <input type="text" name="password-input" id="pname" placeholder='Password123' onChange={handleChangePassword} />
+                        <input type="password" name="password-input" id="pname" placeholder='Password123' onChange={handleChangePassword} />
                         <div className="button">
                             <button className='button' onClick={handleClick} >Login</button>
                         </div>
