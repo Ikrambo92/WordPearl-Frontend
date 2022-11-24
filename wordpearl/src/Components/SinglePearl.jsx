@@ -12,10 +12,10 @@ const SinglePearl = () => {
   const { user } = useContext(UserContext)
   const { id } = useParams();
   const [isLoading, setIsLoading] = useState(true);
-  const [ pearl, setPearl ] = useState({})
-  const [ oyster, setOyster ] = useState({})
-  const [ voteCount, setVoteCount ] = useState(0)
-  const [ voteChange, setVoteChange ] = useState(0)
+  const [pearl, setPearl] = useState({})
+  const [oyster, setOyster] = useState({})
+  const [voteCount, setVoteCount] = useState(0)
+  const [voteChange, setVoteChange] = useState(0)
   const [isvoteUp, setIsVoteUp] = useState(false)
   const [isvoteDown, setIsVoteDown] = useState(false)
   const [deleting, setDeleting] = useState(false)
@@ -29,7 +29,7 @@ const SinglePearl = () => {
         setIsLoading(false)
       })
     })
-  },[id, voteCount])
+  }, [id, voteCount])
 
   useEffect(() => {
     if (voteChange > 0) {
@@ -77,20 +77,20 @@ const SinglePearl = () => {
           <div className='content4'>
             <div className='details4'>
               <div className='data4'>
-        {deleting && <p>Deleting comment…</p>}
-            <h2>{pearl.title}</h2>
-                  <h3>Pearl: {pearl.body}</h3>
-                  <h3>Author: {pearl.username}</h3>
-                  <h4>Date: {pearl.created_at}</h4>
-                  {user.username !== pearl.username ? <></> : <button id='deleteButton' value={id} onClick={handleDelete}>Delete 🗑️</button>}
-          <div>
-            <button onClick={() => handleClickUp()} disabled={isvoteUp}>👍</button>
-            <button onClick={() => handleClickDown()} disabled={isvoteDown}>👎</button>
-            <h5>Votes: {pearl.votes} </h5>
-        </div>
-        <CommentsById />
+                {deleting && <p>Deleting comment…</p>}
+                <h2>{pearl.title}</h2>
+                <h3>Pearl: {pearl.body}</h3>
+                <h3>Author: {pearl.username}</h3>
+                <h4>Date: {pearl.created_at}</h4>
+                {user.username !== pearl.username ? <></> : <button id='deleteButton' value={id} onClick={handleDelete}>Delete 🗑️</button>}
+                <div className='vote-emoji'>
+                  <button onClick={() => handleClickUp()} disabled={isvoteUp}>👍</button>
+                  <button onClick={() => handleClickDown()} disabled={isvoteDown}>👎</button>
+                  <h5>Votes: {pearl.votes} </h5>
+                </div>
               </div>
             </div>
+            <CommentsById />
           </div>
         </div>
       </div>

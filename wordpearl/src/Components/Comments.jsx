@@ -53,11 +53,11 @@ const CommentsByPearl = () => {
     }
 
     return (
-    <div>
+    <div className="comment-sec">
       <br />
       {posting ? <p>Posting...</p> : <textarea id="commentBox" cols="30" rows="5" onChange={handleChange}></textarea>}
       <br />
-      <button onClick={handleClick}>✍️ Join the conversation...</button>
+      <button className="join-the-convo" onClick={handleClick}>✍️ Join the conversation...</button>
       <div>
       {isComments.map((comment) => {
         return <CommentById key={comment.id} comment={comment}/>

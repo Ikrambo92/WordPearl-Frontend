@@ -40,11 +40,12 @@
 
 .card4 {
     position: relative;
-    width: 550px;
-    height: 750px;
+    width: 900px;
+    height: 900px;
     background-color: #333;
     transition: .5s;
     border-radius: 20px;
+    box-shadow: 10px 5px 45px 2px;
 }
 
 .card .lines,
@@ -105,8 +106,7 @@
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
-    overflow: hidden;
-    
+    overflow: scroll;
 }
 
 .card .content .details {
@@ -125,8 +125,16 @@
 }
 
 
-.card .content .details h2,
-.card4 .content4 .details4 h2 {
+.card4 .content4 .details4 .data4 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column wrap;
+    margin-top: 50px;
+    padding: 40px;
+}
+
+.card .content .details h2 {
     color: #fff;
     font-size: 2rem;
     font-weight: 800;
@@ -144,7 +152,7 @@
     color: #fff;
     font-size: 4rem;
     font-weight: 800;
-    margin-bottom: 10px;
+    margin-bottom: 40px;
     background: linear-gradient(180deg, magenta, cyan);
     background-clip: text;
     -webkit-background-clip: text;
@@ -170,8 +178,52 @@
     margin-bottom: 15px;
 }
 
-.card .content .details p:nth-child(2),
-.card4 .content4 .details4 p:nth-child(2) {
+.card4 .content4 .details4 h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 45px;
+    text-align: center;
+}
+
+.card4 .content4 .details4 h3:nth-child(3) {
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 45px;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background: linear-gradient(180deg, magenta, cyan);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.card4 .content4 .details4 h4 {
+    font-size: 2rem;
+    background: linear-gradient(180deg, magenta, cyan);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 45px;    
+}
+
+.card4 .content4 .details4 .data4 .vote-emoji {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-flow: row wrap;
+    width: 100%;
+}
+
+.card4 .content4 .details4 .data4 h5 {
+    font-size: 1.6rem;
+}
+
+.card4 .content4 .details4 .data4 .vote-emoji button {
+    font-size: 3rem;
+    margin: 20px 30px;
+}
+
+.card .content .details p:nth-child(2) {
     font-size: 1rem;
     font-weight: 600;
     margin-bottom: 10px;
@@ -184,8 +236,7 @@
     text-transform: capitalize;
 }
 
-.card .content .details span,
-.card4 .content4 .details4 span {
+.card .content .details span {
     background: linear-gradient(180deg, magenta, cyan);
     background-clip: text;
     -webkit-background-clip: text;
