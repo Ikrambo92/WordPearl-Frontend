@@ -19,7 +19,7 @@ const Pearls = () => {
     if (isLoading) return <p>Pearls are loading...</p> 
 
     return (
-        <section>
+        <section className="pearl-main-container">
             {pearlsList.map((pearl) => {
                 return <PearlCard key={pearl.id} pearl={pearl} />;
             })}

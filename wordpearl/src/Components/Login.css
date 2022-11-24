@@ -50,7 +50,7 @@
 
 .creds input {
   border-radius: 10px;
-  font-size: 20px;
+  font-size: 2rem;
   transition: transform 0.2s;
   transition-property: all;
   box-shadow: 3px 3px 0px 3px;
@@ -137,6 +137,7 @@ text-transform: capitalize;
   justify-content: flex-start;
   align-items: center;
   flex-flow: column wrap;
+  margin-top: 10%;
 }
 
 .after-login button {
@@ -152,8 +153,4 @@ text-transform: capitalize;
 .after-login h2 {
   font-size: 3rem;
   text-decoration: underline;  
-}
-
-.logout {
-  
 }

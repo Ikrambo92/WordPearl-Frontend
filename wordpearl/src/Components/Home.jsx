@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { getPearls } from "../Utils/apis";
 import PearlCard from "./PearlCard";
+import AnimatedPage from './AnimatedPage'
 
 const Home = () => {
 
@@ -29,7 +30,7 @@ const Home = () => {
                 </div>
             </div>
 
-            <section>
+            <section className="all-pearls-container">
                 {pearlsList.map((pearl) => {
                     return (
                         <div className="pearl-container">
@@ -41,7 +42,7 @@ const Home = () => {
                                     <div className="pearl-text">
                                         <h4>{pearl.username}</h4>
                                         <br />
-                                        <h4>{pearl.body}</h4>
+                                        <p className="pearl-home-body">{pearl.body}</p>
                                     </div>
                                 </div>
                             </div>

@@ -55,14 +55,14 @@ nav {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
-  flex-wrap: wrap;
+  flex-flow: row wrap;
   list-style: none;
   text-transform: capitalize;
   overflow: auto;
   text-overflow: ellipsis;
   animation: marquee 10s linear infinite;
   font-size: 1.5rem;
-  /* margin-bottom: 5%; */
+  margin: 0 5%;
   text-transform: uppercase;
   position: sticky;
   padding-bottom: 40px;
@@ -85,3 +85,24 @@ nav {
   font-size: 1.7rem;
   text-decoration: underline;
 }
+
+
+@media screen and (max-width: 768px) {
+  .nav-list {
+    font-size: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .nav-list {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .nav-list {
+    font-size: 0.8rem;
+  }
+}
+
+
