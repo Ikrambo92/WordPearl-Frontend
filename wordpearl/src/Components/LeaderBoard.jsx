@@ -2,7 +2,6 @@ import React from 'react';
 import { getOystersByPoints } from '../Utils/apis';
 import { useEffect, useState } from 'react';
 import './LeaderBoard.css'
-import PearlCard from "./PearlCard";
 
 
 const LeaderBoard = () => {

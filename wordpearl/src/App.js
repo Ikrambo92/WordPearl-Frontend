@@ -12,7 +12,6 @@ import { useState } from 'react'
 import Signup from './Components/Signup'
 import Home from './Components/Home'
 import LeaderBoard from './Components/LeaderBoard'
-import AnimatedPage from './Components/AnimatedPage.jsx'
 import SuccessfulPearl from './Components/SuccessfulPearl.jsx'
 
 function App() {
@@ -30,7 +29,7 @@ function App() {
             <Route path='/Comments' element={<Comments />} />
             <Route path='/Oyster' element={<SingleOyster />} />
             <Route path='/PearlGenerator' element={<PearlGenerator />} />
-            {/* <Route path='/SuccessfulPearl' element={<Pearls />} /> */}
+            <Route path='/SuccessfulPearl' element={<SuccessfulPearl />} />
             <Route path='/Signup' element={<Signup />} />
             <Route path='/' element={<Home />} />
             <Route path='/LeaderBoard' element={<LeaderBoard />} />

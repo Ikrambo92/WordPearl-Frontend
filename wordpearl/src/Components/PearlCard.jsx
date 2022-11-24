@@ -3,7 +3,7 @@ import './PearlCard.css'
 
 const PearlCard = ({ pearl }) => {
 
-    const { id, title, body, username, votes, created_at, comments } = pearl;
+    const { id, title, body, username, votes, created_at } = pearl;
 
     return (
         <div className="cards-container">

@@ -3,8 +3,6 @@ import './Home.css'
 import { useState } from "react";
 import { useEffect } from "react";
 import { getPearls } from "../Utils/apis";
-import PearlCard from "./PearlCard";
-import AnimatedPage from './AnimatedPage'
 
 const Home = () => {
 
