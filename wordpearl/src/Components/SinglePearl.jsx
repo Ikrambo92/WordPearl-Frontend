@@ -61,19 +61,8 @@ import { useNavigate } from 'react-router-dom';
 
   return (
     <div className="single-card-container">
-      {/* <section>
-        <h2>{title}</h2>
-        <h3>Pearl: {body}</h3>
-        <h3>Author: {username}</h3>
-        <h4>Date: {created_at}</h4>
-        <div>
-          <button onClick={() => handleClickUp()} disabled={isvoteUp}>👍</button>
-          <button onClick={() => handleClickDown()} disabled={isvoteDown}>👎</button>
-          <h5>Votes: {votes + voteChange} </h5>
-        </div>
-      </section> */}
 
-      <div className="cards-container">
+      <div className="cards-container4">
         <div className="card4">
           <div className="lines4"></div>
           <div className="content4">
@@ -86,10 +75,10 @@ import { useNavigate } from 'react-router-dom';
                 <button onClick={() => handleClickUp()} disabled={isvoteUp}>👍</button>
                 <button onClick={() => handleClickDown()} disabled={isvoteDown}>👎</button>
                 <h5>Votes: {votes + voteChange} </h5>
-                <CommentsById />
               </div>
             </div>
           </div>
+        <div className="all-comments"><CommentsById /></div>
         </div>
       </div>
     </div>

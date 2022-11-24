@@ -10,6 +10,7 @@
     align-items: center;
     min-height: 80vh;
     flex-flow: column wrap;
+    margin: 7%;
 }
 
 .card1 {
@@ -19,7 +20,7 @@
     border-radius: 20px;
     box-shadow: 0 35px 80px rgba(0,0,0,0.15);
     transition: 0.5s;
-    margin: 10%;
+    margin: 5%;
 }
 
 .card1 .lines1 {

@@ -10,7 +10,7 @@ body {
 }
 
 .home-container {
-    height: 50vh;
+    height: 45vh;
     position: relative;
 }
 
@@ -67,12 +67,20 @@ body {
     }
 }
 
+/* ----------------------------------- */
+
+
+.all-pearls-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
 .pearl-container {
     height: 50vh;
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    flex: 0 0 33.333333%;
     flex-flow: row wrap;
 }
 
@@ -128,19 +136,45 @@ body {
     height: 50px;
     background: rgba(46, 196, 182, .8);
     border-radius: 50%;
-    box-shadow: 0 0 20px rgba(46, 196, 182, 1), 0 0 40px rgba(46, 196, 182, 1), 0 0 60px rgba(46,196,182,1), 0 0 80px rgba(46,196,182,1), 0 0 100px rgba(46,196,182,1);
+    box-shadow: 0 0 20px rgba(46, 196, 182, 1), 0 0 40px rgba(46, 196, 182, 1), 0 0 60px rgba(46, 196, 182, 1), 0 0 80px rgba(46, 196, 182, 1), 0 0 100px rgba(46, 196, 182, 1);
     filter: blur(5px);
     z-index: -1;
 }
 
 .orb .pearl-text {
     position: absolute;
-    top: 35%;
     width: 80%;
     font-size: 1.3rem;
-    background: linear-gradient(180deg, magenta, #000);
+    color: #000;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: var(--max-lines);
+    -webkit-box-orient: vertical;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-flow: column wrap;
+    --max-lines: 4;
+}
+
+.orb .pearl-text h4 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #fff;
+    text-align: center;
+    text-transform: capitalize;
+    background: linear-gradient(1000deg, magenta, #fff);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    box-shadow: 0 0 20px rgba(46, 196, 182, 1), 0 0 40px rgba(46, 196, 182, 1), 0 0 60px rgba(46, 196, 182, 1), 0 0 80px rgba(46, 196, 182, 1), 0 0 100px rgba(46, 196, 182, 1);
+}
+
+.pearl-home-body {
+    font-size: 1.4rem;
+    height: 10vh;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 2), rgba(255, 255, 255, 0.1));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }

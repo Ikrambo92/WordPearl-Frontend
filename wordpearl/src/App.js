@@ -12,6 +12,7 @@ import { useState } from 'react'
 import Signup from './Components/Signup'
 import Home from './Components/Home'
 import LeaderBoard from './Components/LeaderBoard'
+import AnimatedPage from './Components/AnimatedPage.jsx'
 import SuccessfulPearl from './Components/SuccessfulPearl.jsx'
 
 function App() {
@@ -19,26 +20,25 @@ function App() {
   const [user, setUser] = useState({})
 
   return (
-    <div className="App">
-      <Navbar />
-      <UserContext.Provider value={{user, setUser}}>
-      <Routes>
-        <Route path='/Login' element={<Login />} />
-        <Route path='/Pearls' element={<Pearls />} />
-        <Route path="/Pearls/:id" element={<SinglePearl />}></Route>
-        <Route path='/Comments' element={<Comments />} />  
-        <Route path='/Oyster' element={<SingleOyster />} />
-        <Route path='/PearlGenerator' element={<PearlGenerator />} />
-        <Route path='/SuccessfulPearl' element={<SuccessfulPearl />} />
-        <Route path='/Signup' element={<Signup />} />
-        <Route path='/' element={<Home />} />
-        <Route path='/LeaderBoard' element={<LeaderBoard />} />
-      </Routes>
-      </UserContext.Provider>
-      <Footer />
-    </div>
+      <div className="App">
+        <Navbar />
+        <UserContext.Provider value={{ user, setUser }}>
+          <Routes>
+            <Route path='/Login' element={<Login />} />
+            <Route path='/Pearls' element={<Pearls />} />
+            <Route path="/Pearls/:id" element={<SinglePearl />}></Route>
+            <Route path='/Comments' element={<Comments />} />
+            <Route path='/Oyster' element={<SingleOyster />} />
+            <Route path='/PearlGenerator' element={<PearlGenerator />} />
+            {/* <Route path='/SuccessfulPearl' element={<Pearls />} /> */}
+            <Route path='/Signup' element={<Signup />} />
+            <Route path='/' element={<Home />} />
+            <Route path='/LeaderBoard' element={<LeaderBoard />} />
+          </Routes>
+        </UserContext.Provider>
+        <Footer />
+      </div>
   );
 }
-
 
 export default App;
