@@ -50,3 +50,10 @@ padding: 1em;
 .text-dark{
 color: var(--color-dark);
 }
+
+.leader-pos {
+    position: absolute;
+    font-size: 5rem;
+    transform: translate(260px, -100px);
+    z-index: 4;
+}

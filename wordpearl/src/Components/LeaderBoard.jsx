@@ -24,7 +24,7 @@ const LeaderBoard = () => {
 
     return (
         <div className="card-container1">
-            {oysters.map((oyster) => {
+            {oysters.map((oyster, index) => {
                 return (
                     <div className='card1'>
                         <div className="lines1"></div>
@@ -32,6 +32,7 @@ const LeaderBoard = () => {
                             <li><img src={oyster.avatar_url} alt="avatar" />
                             </li>
                         </div>
+                        <h2 className="leader-pos"># <span>{index + 1}</span></h2>
                         <div className='content1'>
                             <div className='details1'>
                                 <ul>
