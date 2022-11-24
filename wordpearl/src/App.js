@@ -13,6 +13,7 @@ import Signup from './Components/Signup'
 import Home from './Components/Home'
 import LeaderBoard from './Components/LeaderBoard'
 import AnimatedPage from './Components/AnimatedPage.jsx'
+import SuccessfulPearl from './Components/SuccessfulPearl.jsx'
 
 function App() {
 
@@ -39,6 +40,5 @@ function App() {
       </div>
   );
 }
-
 
 export default App;
